@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-white min-h-screen">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Secure Your Rails App with Active Record Encryption</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Jost:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body class="text-slate-700 font-sans font-light min-h-screen">
+  <div class="container">
+    <header>
+      <div class="header-avatar">
+        <a href="index.html">
+          <img src="./profile.jpg" alt="Bui Hoang Ha Avatar">
+        </a>
+      </div>
+
+      <div>
+        <a class="logo" href="index.html">
+          Bui Hoang Ha
+        </a>
+
+        <nav>
+          <a href="index.html#projects">Projects</a>
+          <a href="index.html#blog">Articles</a>
+          <a href="index.html#about">About</a>
+          <a href="index.html#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="back-link">
+        <a href="index.html#blog">← Back to Articles</a>
+      </div>
+
+      <div class="blog-content">
+
+        <p>
+          Rails 7 introduced a powerful feature to help developers protect sensitive user data: <strong>Active Record
+            Encryption</strong>.
+          This application-level encryption secures specified model attributes without relying solely on the database
+          layer.
+          In this post, we'll explore how it works and how to use it effectively.
+        </p>
+
+        <h2>💡 What Is Active Record Encryption?</h2>
+
+        <p>
+          Active Record Encryption adds a layer of encryption between your Rails app and your database. You define which
+          fields
+          are sensitive, and Rails takes care of encrypting and decrypting them transparently.
+        </p>
+
+        <blockquote>
+          “Active Record Encryption exists to protect sensitive information in your application… you define what
+          constitutes sensitive information at the code level.”<br />
+          — <a href="https://guides.rubyonrails.org/active_record_encryption.html" target="_blank">Rails Guides</a>
+        </blockquote>
+
+        <p>This encryption is <strong>application-side</strong>, meaning the database never sees unencrypted values.</p>
+
+        <h2>🔒 Why Encrypt at the Application Level?</h2>
+
+        <p>While many applications encrypt data <em>at rest</em> (e.g., at the disk or database level), Active Record
+          Encryption provides more granular and powerful protection:</p>
+
+        <ul>
+          <li>✅ Prevents exposure in logs, backups, and unauthorized DB access</li>
+          <li>✅ Offers field-level control</li>
+          <li>✅ Seamlessly integrates with Active Record</li>
+        </ul>
+
+        <p>This approach is especially useful for personally identifiable information (PII), financial details, or
+          health-related data.</p>
+
+        <h2>⚙️ Getting Started</h2>
+
+        <h3>1. Generate Encryption Keys</h3>
+
+        <p>Rails offers a built-in generator to bootstrap the required encryption keys:</p>
+
+        <pre><code>bin/rails db:encryption:init</code></pre>
+
+        <p>This will generate base key and deterministic key values and save them into <code>config/master.key</code> or
+          <code>ENV</code>.</p>
+
+        <h3>2. Declare Encrypted Attributes</h3>
+
+        <p>To encrypt specific model attributes, use:</p>
+
+        <pre><code>class User &lt; ApplicationRecord
+  encrypts :email, :ssn
+end</code></pre>
+
+        <p>That’s it — Rails now transparently encrypts/decrypts those fields when reading/writing to the database.</p>
+
+        <h3>3. Working with Encrypted Fields</h3>
+
+        <p>Encrypted fields can be queried with deterministic encryption, using:</p>
+
+        <pre><code>User.find_by(email: 'someone@example.com')</code></pre>
+
+        <p>If you only use non-deterministic encryption, querying is not supported directly.</p>
+
+        <h3>4. Advanced Configurations</h3>
+
+        <ul>
+          <li><strong>Custom keys per attribute</strong></li>
+          <li><strong>Encrypt only on write</strong></li>
+          <li><strong>Support for blind indexes</strong> for secure queries</li>
+        </ul>
+
+        <p>You can refer to the <a href="https://guides.rubyonrails.org/active_record_encryption.html">official
+            guide</a> for more detailed configurations and examples.</p>
+
+        <h2>✅ Best Practices</h2>
+
+        <ul>
+          <li>Never commit secrets to version control</li>
+          <li>Use environment variables or credential files for encryption keys</li>
+          <li>Encrypt only what you need — avoid over-encryption</li>
+          <li>Test both encryption and decryption flows thoroughly</li>
+        </ul>
+
+        <h2>📚 Resources</h2>
+
+        <ul>
+          <li><a href="https://guides.rubyonrails.org/active_record_encryption.html" target="_blank">Rails Guide: Active
+              Record Encryption</a></li>
+          <li><a href="https://github.com/rails/rails/blob/main/activerecord/lib/active_record/encryption/"
+              target="_blank">Rails GitHub Source</a></li>
+          <li><a href="https://edgeguides.rubyonrails.org/active_record_encryption.html" target="_blank">Edge Rails
+              Docs</a></li>
+        </ul>
+
+      </div>
+    </main>
+
+    <footer>
+      <p>© 2025 Bui Hoang Ha.</p>
+      <p>Built with <span style="color: #cc0000;">Ruby on Rails</span> & <span style="color: var(--accent);">modern web
+          technologies</span>.</p>
+    </footer>
+  </div>
+</body>
+
+</html>

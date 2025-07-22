@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-white min-h-screen">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Using Microsoft Graph API to Automate 2FA Retrieval</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Jost:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body class="text-slate-700 font-sans font-light min-h-screen">
+  <div class="container">
+    <header>
+      <div class="header-avatar">
+        <a href="index.html">
+          <img src="./profile.jpg" alt="Bui Hoang Ha Avatar">
+        </a>
+      </div>
+
+      <div>
+        <a class="logo" href="index.html">
+          Bui Hoang Ha
+        </a>
+
+        <nav>
+          <a href="index.html#projects">Projects</a>
+          <a href="index.html#blog">Articles</a>
+          <a href="index.html#about">About</a>
+          <a href="index.html#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="back-link">
+        <a href="index.html#blog">← Back to Articles</a>
+      </div>
+
+      <div class="blog-content">
+        <h1>🔐 Using Microsoft Graph API to Automate 2FA Retrieval</h1>
+
+        <p>
+          Two-factor authentication (2FA) is essential for security, but manually retrieving codes can be tedious during
+          development and testing.
+          In this post, we'll explore how to use Microsoft Graph API to programmatically access 2FA codes from Microsoft
+          Authenticator,
+          making your development workflow more efficient while maintaining security.
+        </p>
+
+        <h2>🚨 Important Security Notice</h2>
+
+        <blockquote>
+          <strong>Warning:</strong> This approach should only be used in development/testing environments.
+          Never automate 2FA retrieval in production systems as it defeats the purpose of two-factor authentication.
+        </blockquote>
+
+        <h2>📋 Prerequisites</h2>
+
+        <p>Before we start, ensure you have:</p>
+
+        <ul>
+          <li>✅ Azure AD tenant with admin access</li>
+          <li>✅ Microsoft Authenticator app configured</li>
+          <li>✅ Basic understanding of OAuth 2.0</li>
+          <li>✅ Ruby/Rails development environment</li>
+        </ul>
+
+        <h2>🔧 Setting Up Azure App Registration</h2>
+
+        <h3>1. Create App Registration</h3>
+
+        <p>Navigate to Azure Portal → Azure Active Directory → App registrations → New registration:</p>
+
+        <pre><code>Name: "2FA Automation Tool"
+Supported account types: Single tenant
+Redirect URI: http://localhost:3000/auth/callback</code></pre>
+
+        <h3>2. Configure API Permissions</h3>
+
+        <p>Add the following Microsoft Graph permissions:</p>
+
+        <ul>
+          <li><code>User.Read</code> - Read user profile</li>
+          <li><code>UserAuthenticationMethod.Read.All</code> - Read authentication methods</li>
+        </ul>
+
+        <p><strong>Note:</strong> These permissions require admin consent in most organizations.</p>
+
+        <h2>💎 Ruby Implementation</h2>
+
+        <h3>Setting Up the Graph Client</h3>
+
+        <p>First, add the required gems to your Gemfile:</p>
+
+        <pre><code># Gemfile
+gem 'httparty'
+gem 'oauth2'</code></pre>
+
+        <p>Create a service class for Microsoft Graph API:</p>
+
+        <pre><code>class MicrosoftGraphService
+  include HTTParty
+  base_uri 'https://graph.microsoft.com/v1.0'
+
+  def initialize(access_token)
+    @access_token = access_token
+    @headers = {
+      'Authorization' => "Bearer #{@access_token}",
+      'Content-Type' => 'application/json'
+    }
+  end
+
+  def get_user_profile
+    response = self.class.get('/me', headers: @headers)
+    handle_response(response)
+  end
+
+  def get_authentication_methods
+    response = self.class.get('/me/authentication/methods', headers: @headers)
+    handle_response(response)
+  end
+
+  private
+
+  def handle_response(response)
+    if response.success?
+      JSON.parse(response.body)
+    else
+      raise "API Error: #{response.code} - #{response.message}"
+    end
+  end
+end</code></pre>
+
+        <h3>OAuth 2.0 Authentication Flow</h3>
+
+        <p>Implement the OAuth flow to get access tokens:</p>
+
+        <pre><code>class AuthController < ApplicationController
+  def authorize
+    client = OAuth2::Client.new(
+      ENV['AZURE_CLIENT_ID'],
+      ENV['AZURE_CLIENT_SECRET'],
+      site: 'https://login.microsoftonline.com',
+      authorize_url: "/#{ENV['AZURE_TENANT_ID']}/oauth2/v2.0/authorize",
+      token_url: "/#{ENV['AZURE_TENANT_ID']}/oauth2/v2.0/token"
+    )
+
+    redirect_to client.auth_code.authorize_url(
+      redirect_uri: ENV['REDIRECT_URI'],
+      scope: 'User.Read UserAuthenticationMethod.Read.All'
+    )
+  end
+
+  def callback
+    # Handle the callback and exchange code for token
+    # Store token securely for API calls
+  end
+end</code></pre>
+
+        <h2>🔍 Retrieving 2FA Codes</h2>
+
+        <p>Once authenticated, you can retrieve authentication methods:</p>
+
+        <pre><code>def get_current_2fa_code
+  graph_service = MicrosoftGraphService.new(current_user.access_token)
+  
+  auth_methods = graph_service.get_authentication_methods
+  
+  # Find Microsoft Authenticator method
+  authenticator_method = auth_methods['value'].find do |method|
+    method['@odata.type'] == '#microsoft.graph.microsoftAuthenticatorAuthenticationMethod'
+  end
+
+  if authenticator_method
+    # Extract current TOTP code
+    extract_totp_code(authenticator_method)
+  else
+    raise "Microsoft Authenticator not found"
+  end
+end</code></pre>
+
+        <h2>⚡ Integration with Rails App</h2>
+
+        <p>Create a helper method for development environments:</p>
+
+        <pre><code>module DevelopmentHelper
+  def auto_fill_2fa_code
+    return unless Rails.env.development?
+    
+    begin
+      code = TwoFactorService.get_current_code
+      render json: { code: code }
+    rescue => e
+      render json: { error: e.message }, status: :unprocessable_entity
+    end
+  end
+end</code></pre>
+
+        <h2>🔐 Security Best Practices</h2>
+
+        <ul>
+          <li>🔒 Store tokens securely using Rails credentials</li>
+          <li>⏰ Implement token refresh logic</li>
+          <li>🚫 Never use in production environments</li>
+          <li>🔄 Rotate API credentials regularly</li>
+          <li>📝 Log all API access for auditing</li>
+        </ul>
+
+        <h2>🚧 Limitations & Considerations</h2>
+
+        <ul>
+          <li>Requires organizational admin consent</li>
+          <li>Limited to Microsoft-based 2FA solutions</li>
+          <li>Rate limiting applies to Graph API calls</li>
+          <li>Not suitable for production use cases</li>
+        </ul>
+
+        <h2>📚 Resources</h2>
+
+        <ul>
+          <li><a href="https://docs.microsoft.com/en-us/graph/" target="_blank">Microsoft Graph API Documentation</a>
+          </li>
+          <li><a href="https://docs.microsoft.com/en-us/graph/auth/" target="_blank">Graph API Authentication</a></li>
+          <li><a href="https://github.com/oauth-xx/oauth2" target="_blank">OAuth2 Ruby Gem</a></li>
+        </ul>
+
+      </div>
+    </main>
+
+    <footer>
+      <p>© 2025 Bui Hoang Ha.</p>
+      <p>Built with <span style="color: #cc0000;">Ruby on Rails</span> & <span style="color: var(--accent);">modern web
+          technologies</span>.</p>
+    </footer>
+  </div>
+</body>
+
+</html>
