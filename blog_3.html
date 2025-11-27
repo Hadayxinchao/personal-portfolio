@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-white min-h-screen">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Building a RAG Chatbot: Smarter AI Conversations</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="text-slate-700 font-sans font-light min-h-screen">
+  <div class="container">
+    <header>
+      <div class="header-avatar">
+        <a href="index.html">
+          <img src="./profile.jpg" alt="Bui Hoang Ha Avatar">
+        </a>
+      </div>
+      <div>
+        <a class="logo" href="index.html">Bui Hoang Ha</a>
+        <nav>
+          <a href="index.html#projects">Projects</a>
+          <a href="index.html#blog">Articles</a>
+          <a href="index.html#about">About</a>
+          <a href="index.html#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <div class="back-link">
+        <a href="index.html#blog">← Back to Articles</a>
+      </div>
+      <div class="blog-content">
+        <h1>🤖 Building a RAG Chatbot: How Retrieval-Augmented Generation Powers Smarter Conversations</h1>
+        <h2>Introduction</h2>
+        <p>Retrieval-Augmented Generation (RAG) is a cutting-edge approach that combines the strengths of large language models (LLMs) with real-time information retrieval. Instead of relying solely on a model’s pre-trained knowledge, RAG chatbots can search external data sources and generate contextually accurate, up-to-date responses. This makes them ideal for customer support, knowledge bases, and technical assistants.</p>
+        <h2>What is RAG?</h2>
+        <p>RAG blends two components:</p>
+        <ul>
+          <li><strong>Retriever:</strong> Finds relevant documents or snippets from a database, search engine, or knowledge base.</li>
+          <li><strong>Generator:</strong> Uses an LLM (like GPT-4) to synthesize a response, leveraging both the retrieved context and the user’s query.</li>
+        </ul>
+        <p>This hybrid architecture enables chatbots to answer domain-specific questions, cite sources, and avoid hallucinations.</p>
+        <h2>Why Use RAG for Chatbots?</h2>
+        <ul>
+          <li><strong>Up-to-date Answers:</strong> Pulls the latest information from trusted sources.</li>
+          <li><strong>Domain Adaptation:</strong> Handles specialized topics (e.g., company policies, product docs).</li>
+          <li><strong>Reduced Hallucination:</strong> Grounds responses in real data.</li>
+          <li><strong>Citations:</strong> Can reference sources for transparency.</li>
+        </ul>
+        <h2>How Does a RAG Chatbot Work?</h2>
+        <ol>
+          <li><strong>User Query:</strong> The user asks a question.</li>
+          <li><strong>Retrieval:</strong> The system searches a document store (e.g., company wiki, FAQ, database) for relevant passages.</li>
+          <li><strong>Generation:</strong> The LLM receives the query and retrieved context, then generates a response.</li>
+          <li><strong>Response:</strong> The chatbot replies, optionally with citations or links.</li>
+        </ol>
+        <h2>Example: RAG Chatbot in Ruby (Pseudo-code)</h2>
+        <pre><code>def answer_with_rag(query)
+  context = Retriever.search(query) # e.g., vector DB, Elasticsearch
+  response = LLM.generate(query: query, context: context)
+  return response
+end
+</code></pre>
+        <h2>Best Practices</h2>
+        <ul>
+          <li>Use high-quality, up-to-date data sources.</li>
+          <li>Regularly update your document store.</li>
+          <li>Monitor for bias and hallucinations.</li>
+          <li>Provide citations for transparency.</li>
+        </ul>
+        <h2>Resources</h2>
+        <ul>
+          <li><a href="https://huggingface.co/docs/transformers/main/en/model_doc/rag" target="_blank">Hugging Face RAG Documentation</a></li>
+          <li><a href="https://github.com/openai/openai-cookbook" target="_blank">OpenAI Cookbook: Retrieval-Augmented Generation</a></li>
+          <li><a href="https://python.langchain.com/docs/use_cases/question_answering/" target="_blank">LangChain RAG Templates</a></li>
+        </ul>
+        <h2>Conclusion</h2>
+        <p>RAG chatbots represent the next step in conversational AI, combining the flexibility of LLMs with the reliability of real-world data. Whether you’re building a support bot or a technical assistant, RAG can help deliver smarter, more trustworthy answers.</p>
+      </div>
+    </main>
+    <footer>
+      <p>© 2025 Bui Hoang Ha.</p>
+      <p>Built with <span style="color: #cc0000;">Ruby on Rails</span> & <span style="color: var(--accent);">modern web technologies</span>.</p>
+    </footer>
+  </div>
+</body>
+</html>
