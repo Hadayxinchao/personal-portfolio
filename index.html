@@ -12,7 +12,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Jost:wght@300;400;500;600;700&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles/styles.css" />
   <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 
@@ -21,7 +21,7 @@
     <header>
       <div class="header-avatar">
         <a href="#home">
-          <img src="./profile.jpg" alt="Bui Hoang Ha Avatar">
+          <img src="./images/profile.jpg" alt="Bui Hoang Ha Avatar">
         </a>
       </div>
 
@@ -46,7 +46,7 @@
           <div class="hero">
               <h1>Backend Developer & AI Integrator</h1>
               <p class="subtitle">
-                Nearly 3 years building scalable, data-intensive systems and AI-assisted backend services.<br>
+                3 years building scalable, data-intensive systems and AI-assisted backend services.<br>
                 Strong expertise in <span style="color: #cc0000; font-weight: 600;">Ruby on Rails</span>, RESTful APIs, and LLM/RAG integration.
               </p>
               <p class="description">
@@ -61,53 +61,69 @@
               </p>
           </div>
         </section>
+
         <!-- Projects Section -->
         <section id="projects">
-            <h2 class="section-header">Projects</h2>
-            <div class="project-grid">
-              <a class="project-card" href="https://github.com/Hadayxinchao/password-manager" target="_blank">
+            <h2 class="section-header" style="margin-bottom: 2.5rem;">Projects</h2>
+            <div class="project-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem;">
+              <a class="project-card" href="blog_5.html" target="_blank" style="background: var(--card-bg); border-radius: 1.5rem; box-shadow: var(--shadow-lg); border: 1px solid var(--border); padding: 2rem 1.5rem; display: flex; flex-direction: column; justify-content: space-between; text-decoration: none; transition: box-shadow 0.2s, transform 0.2s; color: inherit;">
                 <div class="project-card-content">
-                  <div class="project-meta">
-                    <p class="project-title">Password Manager</p>
+                  <div class="project-meta" style="margin-bottom: 0.5rem;">
+                    <p class="project-title" style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">MLOps Image Classifier</p>
                   </div>
-                  <p class="project-description">
+                  <p class="project-description" style="margin-bottom: 1.25rem; color: var(--text-light);">
+                    End-to-end image classification pipeline with MLOps best practices: CI/CD, Docker, DVC, CML, MLflow, and automated reporting. Read the full project blog for details and source code.
+                  </p>
+                  <p class="project-link" style="color: var(--accent); font-weight: 500;">Read Project Blog</p>
+                </div>
+                <div class="project-tech-bar" style="display: flex; gap: 0.75rem; margin-top: 1rem;">
+                  <p class="tech-tag"><span class="tech-dot tech-python"></span>Python</p>
+                  <p class="tech-tag"><span class="tech-dot tech-docker"></span>Docker</p>
+                  <p class="tech-tag"><span class="tech-dot tech-aws"></span>AWS</p>
+                  <p class="tech-tag"><span class="tech-dot tech-ml"></span>MLOps</p>
+                </div>
+              </a>
+              <a class="project-card" href="https://github.com/Hadayxinchao/password-manager" target="_blank" style="background: var(--card-bg); border-radius: 1.5rem; box-shadow: var(--shadow-lg); border: 1px solid var(--border); padding: 2rem 1.5rem; display: flex; flex-direction: column; justify-content: space-between; text-decoration: none; transition: box-shadow 0.2s, transform 0.2s; color: inherit;">
+                <div class="project-card-content">
+                  <div class="project-meta" style="margin-bottom: 0.5rem;">
+                    <p class="project-title" style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">Password Manager</p>
+                  </div>
+                  <p class="project-description" style="margin-bottom: 1.25rem; color: var(--text-light);">
                     Secure password manager using Ruby on Rails 8 and Hotwire. Chrome Extension for autofill workflows, encrypted storage with Active Record Encryption.
                   </p>
-                  <p class="project-link">
-                    View Repo
-                  </p>
+                  <p class="project-link" style="color: var(--accent); font-weight: 500;">View Repo</p>
                 </div>
-                <div class="project-tech-bar">
+                <div class="project-tech-bar" style="display: flex; gap: 0.75rem; margin-top: 1rem;">
                   <p class="tech-tag"><span class="tech-dot tech-rails"></span>Rails</p>
                   <p class="tech-tag"><span class="tech-dot tech-javascript"></span>Hotwire</p>
                   <p class="tech-tag"><span class="tech-dot tech-css"></span>Chrome Extension</p>
                 </div>
               </a>
-              <div class="project-card">
+              <div class="project-card" style="background: var(--card-bg); border-radius: 1.5rem; box-shadow: var(--shadow-lg); border: 1px solid var(--border); padding: 2rem 1.5rem; display: flex; flex-direction: column; justify-content: space-between; transition: box-shadow 0.2s, transform 0.2s;">
                 <div class="project-card-content">
-                  <div class="project-meta">
-                    <p class="project-title">Social Network Website</p>
+                  <div class="project-meta" style="margin-bottom: 0.5rem;">
+                    <p class="project-title" style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">Social Network Website</p>
                   </div>
-                  <p class="project-description">
+                  <p class="project-description" style="margin-bottom: 1.25rem; color: var(--text-light);">
                     Real-time social platform using Action Cable, authentication via Devise, RESTful APIs, and full RSpec test coverage.
                   </p>
                 </div>
-                <div class="project-tech-bar">
+                <div class="project-tech-bar" style="display: flex; gap: 0.75rem; margin-top: 1rem;">
                   <p class="tech-tag"><span class="tech-dot tech-rails"></span>Rails</p>
                   <p class="tech-tag"><span class="tech-dot tech-javascript"></span>Action Cable</p>
                   <p class="tech-tag"><span class="tech-dot tech-css"></span>RSpec</p>
                 </div>
               </div>
-              <div class="project-card">
+              <div class="project-card" style="background: var(--card-bg); border-radius: 1.5rem; box-shadow: var(--shadow-lg); border: 1px solid var(--border); padding: 2rem 1.5rem; display: flex; flex-direction: column; justify-content: space-between; transition: box-shadow 0.2s, transform 0.2s;">
                 <div class="project-card-content">
-                  <div class="project-meta">
-                    <p class="project-title">Booking Application</p>
+                  <div class="project-meta" style="margin-bottom: 0.5rem;">
+                    <p class="project-title" style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">Booking Application</p>
                   </div>
-                  <p class="project-description">
+                  <p class="project-description" style="margin-bottom: 1.25rem; color: var(--text-light);">
                     Ticket booking system with asynchronous background processing using Sidekiq, and Docker-based deployment.
                   </p>
                 </div>
-                <div class="project-tech-bar">
+                <div class="project-tech-bar" style="display: flex; gap: 0.75rem; margin-top: 1rem;">
                   <p class="tech-tag"><span class="tech-dot tech-rails"></span>Rails</p>
                   <p class="tech-tag"><span class="tech-dot tech-javascript"></span>Sidekiq</p>
                   <p class="tech-tag"><span class="tech-dot tech-css"></span>Docker</p>
@@ -118,50 +134,63 @@
 
         <!-- Blog Section -->
         <section id="blog">
-          <h2 class="section-header">Articles</h2>
-
-          <div class="blog-grid">
-            <article class="blog-card">
-              <h3 class="blog-title">
-                <a href="blog_1.html">Understanding Rails Active Record Encryption</a>
+          <h2 class="section-header" style="margin-bottom: 2.5rem;">Articles</h2>
+          <div class="blog-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem;">
+            <article class="blog-card" style="background: var(--card-bg); border-radius: 1.5rem; box-shadow: var(--shadow-lg); border: 1px solid var(--border); padding: 2rem 1.5rem; display: flex; flex-direction: column; justify-content: space-between; transition: box-shadow 0.2s;">
+              <h3 class="blog-title" style="font-size: 1.35rem; font-weight: 700; margin-bottom: 0.75rem;">
+                <a href="blog_4.html" style="color: var(--text-dark); text-decoration: none;">🏃 Conquering the Half Marathon: My 2h 50m Journey</a>
               </h3>
-              <p class="blog-meta">
-                <span style="color: #cc0000; border: 1px solid #cc0000; padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.75rem;">Ruby on Rails</span>
-                <span>22 July 2025</span>
-                <span>5 minute read</span>
+              <p class="blog-meta" style="margin-bottom: 1rem;">
+                <span style="color: #16a34a; border: 1px solid #16a34a; padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.75rem;">Personal</span>
+                <span>30 November 2025</span>
+                <span>7 minute read</span>
               </p>
-              <div class="blog-excerpt">
-                <p>Learn how to secure sensitive data in your Rails applications with Active Record Encryption, a powerful feature introduced in Rails 7. Explore implementation strategies and best practices.</p>
+              <div class="blog-excerpt" style="margin-bottom: 1.25rem;">
+                <p>My first half marathon: training, race day, and lessons learned. From the starting line to the finish, here’s how I conquered 21km and what’s next in my running journey.</p>
               </div>
-              <a class="blog-read-more" href="blog_1.html">Read Article</a>
+              <a class="blog-read-more" href="blog_4.html" style="color: var(--accent); font-weight: 500;">Read Article</a>
             </article>
-            <article class="blog-card">
-              <h3 class="blog-title">
-                <a href="blog_2.html">Using Microsoft Graph API to Automate 2FA Retrieval</a>
+            <article class="blog-card" style="background: var(--card-bg); border-radius: 1.5rem; box-shadow: var(--shadow-lg); border: 1px solid var(--border); padding: 2rem 1.5rem; display: flex; flex-direction: column; justify-content: space-between; transition: box-shadow 0.2s;">
+              <h3 class="blog-title" style="font-size: 1.35rem; font-weight: 700; margin-bottom: 0.75rem;">
+                <a href="blog_3.html" style="color: var(--text-dark); text-decoration: none;">Building a RAG Chatbot: Smarter AI Conversations</a>
               </h3>
-              <p class="blog-meta">
-                <span style="color: #0ea5e9; border: 1px solid #0ea5e9; padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.75rem;">API Integration</span>
-                <span>22 July 2025</span>
-                <span>8 minute read</span>
-              </p>
-              <div class="blog-excerpt">
-                <p>Explore how to programmatically access 2FA codes from Microsoft Authenticator for development workflows while maintaining security best practices.</p>
-              </div>
-              <a class="blog-read-more" href="blog_2.html">Read Article</a>
-            </article>
-            <article class="blog-card">
-              <h3 class="blog-title">
-                <a href="blog_3.html">Building a RAG Chatbot: Smarter AI Conversations</a>
-              </h3>
-              <p class="blog-meta">
+              <p class="blog-meta" style="margin-bottom: 1rem;">
                 <span style="color: #38bdf8; border: 1px solid #38bdf8; padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.75rem;">AI & Chatbots</span>
                 <span>06 November 2025</span>
                 <span>6 minute read</span>
               </p>
-              <div class="blog-excerpt">
+              <div class="blog-excerpt" style="margin-bottom: 1.25rem;">
                 <p>Discover how Retrieval-Augmented Generation (RAG) chatbots combine LLMs with real-time data retrieval to deliver smarter, more reliable answers for support, knowledge bases, and technical assistants.</p>
               </div>
-              <a class="blog-read-more" href="blog_3.html">Read Article</a>
+              <a class="blog-read-more" href="blog_3.html" style="color: var(--accent); font-weight: 500;">Read Article</a>
+            </article>
+            <article class="blog-card" style="background: var(--card-bg); border-radius: 1.5rem; box-shadow: var(--shadow-lg); border: 1px solid var(--border); padding: 2rem 1.5rem; display: flex; flex-direction: column; justify-content: space-between; transition: box-shadow 0.2s;">
+              <h3 class="blog-title" style="font-size: 1.35rem; font-weight: 700; margin-bottom: 0.75rem;">
+                <a href="blog_2.html" style="color: var(--text-dark); text-decoration: none;">Using Microsoft Graph API to Automate 2FA Retrieval</a>
+              </h3>
+              <p class="blog-meta" style="margin-bottom: 1rem;">
+                <span style="color: #0ea5e9; border: 1px solid #0ea5e9; padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.75rem;">API Integration</span>
+                <span>22 July 2025</span>
+                <span>8 minute read</span>
+              </p>
+              <div class="blog-excerpt" style="margin-bottom: 1.25rem;">
+                <p>Explore how to programmatically access 2FA codes from Microsoft Authenticator for development workflows while maintaining security best practices.</p>
+              </div>
+              <a class="blog-read-more" href="blog_2.html" style="color: var(--accent); font-weight: 500;">Read Article</a>
+            </article>
+            <article class="blog-card" style="background: var(--card-bg); border-radius: 1.5rem; box-shadow: var(--shadow-lg); border: 1px solid var(--border); padding: 2rem 1.5rem; display: flex; flex-direction: column; justify-content: space-between; transition: box-shadow 0.2s;">
+              <h3 class="blog-title" style="font-size: 1.35rem; font-weight: 700; margin-bottom: 0.75rem;">
+                <a href="blog_1.html" style="color: var(--text-dark); text-decoration: none;">Understanding Rails Active Record Encryption</a>
+              </h3>
+              <p class="blog-meta" style="margin-bottom: 1rem;">
+                <span style="color: #cc0000; border: 1px solid #cc0000; padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.75rem;">Ruby on Rails</span>
+                <span>22 July 2025</span>
+                <span>5 minute read</span>
+              </p>
+              <div class="blog-excerpt" style="margin-bottom: 1.25rem;">
+                <p>Learn how to secure sensitive data in your Rails applications with Active Record Encryption, a powerful feature introduced in Rails 7. Explore implementation strategies and best practices.</p>
+              </div>
+              <a class="blog-read-more" href="blog_1.html" style="color: var(--accent); font-weight: 500;">Read Article</a>
             </article>
           </div>
         </section>
@@ -213,7 +242,11 @@
           <div class="skills-grid">
             <div class="skill-category">
               <h4>Hanoi University of Science and Technology</h4>
-              <p>Bachelor of Engineering in Computer Science; GPA: 3.01 (Oct 2020 -- Present)</p>
+              <p>Bachelor of Engineering in Computer Science; GPA: 3.01 (Oct 2020 -- Feb 2025)</p>
+            </div>
+            <div class="skill-category">
+              <h4>Hanoi University of Science and Technology</h4>
+              <p>Generative Artificial Intelligence Engineering (Oct 2025 -- Present)</p>
             </div>
           </div>
           <h3 id="contact" style="margin-bottom: 1rem; font-size: 1.5rem; font-weight: 600;">Let's Connect</h3>

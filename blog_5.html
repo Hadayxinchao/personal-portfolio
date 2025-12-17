@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-white min-h-screen">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MLOps in Practice: Building an End-to-End Image Classifier</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Jost:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="/styles/styles.css" />
+</head>
+
+<body class="text-slate-700 font-sans font-light min-h-screen">
+  <div class="container">
+    <header>
+      <div class="header-avatar">
+        <a href="index.html">
+          <img src="./images/profile.jpg" alt="Bui Hoang Ha Avatar">
+        </a>
+      </div>
+
+      <div>
+        <a class="logo" href="index.html">
+          Bui Hoang Ha
+        </a>
+
+        <nav>
+          <a href="index.html#projects">Projects</a>
+          <a href="index.html#blog">Articles</a>
+          <a href="index.html#about">About</a>
+          <a href="index.html#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="back-link">
+        <a href="index.html#blog">← Back to Articles</a>
+      </div>
+
+      <div class="blog-content">
+        <h1>MLOps in Practice: Building an End-to-End Image Classifier</h1>
+
+        <p>
+          In machine learning, training a model is often the easiest part. The real challenge lies in building a
+          reproducible, scalable, and automated pipeline that takes a model from a Jupyter Notebook to production.
+          In this post, I'll walk you through my latest project: a production-ready <strong>End-to-End Image Classifier</strong>
+          that implements industry-standard MLOps practices.
+        </p>
+
+        <h2>The Tech Stack & Infrastructure</h2>
+
+        <p>
+          To ensure reliability and scalability, this project integrates several key technologies.
+          Below are the infrastructure highlights used to power the pipeline:
+        </p>
+
+        <div class="skill-category" style="margin: 2rem 0; border-left: 4px solid var(--accent);">
+          <ul style="list-style: none; padding-left: 0;">
+            <li style="margin-bottom: 0.5rem;">
+              <strong>CI/CD:</strong> We utilize <strong>GitHub Actions</strong> to automate testing and reporting workflows on every pull request.
+            </li>
+            <li style="margin-bottom: 0.5rem;">
+              <strong>Deployment & Build:</strong> The entire environment is containerized using <strong>Docker</strong>, ensuring consistency across development and CI environments.
+            </li>
+            <li style="margin-bottom: 0.5rem;">
+              <strong>Infrastructure:</strong> Data versioning and remote storage are configured to integrate with <strong>AWS (S3)</strong> buckets via DVC.
+            </li>
+          </ul>
+        </div>
+
+        <h2>Beyond the Model: Key MLOps Components</h2>
+
+        <h3>1. Configuration Management with Hydra</h3>
+        <p>
+          Hardcoding hyperparameters is a recipe for disaster. I used <strong>Hydra</strong> to manage configurations dynamically.
+          This allows for easy experimentation without changing code:
+        </p>
+        <pre><code># Run with different parameters instantly
+python src/training/train.py model=resnet data=cifar10 hyperparameters.learning_rate=0.001</code></pre>
+
+        <h3>2. Data Version Control (DVC)</h3>
+        <p>
+          Code is versioned with Git, but what about data? Using <strong>DVC</strong>, I track large datasets (like MNIST and CIFAR-10)
+          and link them to specific commits. This ensures that every model training run is 100% reproducible with the exact data used at that time.
+        </p>
+
+        <h3>3. Continuous Machine Learning (CML)</h3>
+        <p>
+          One of the coolest features of this pipeline is the integration of CML. When a Pull Request is opened,
+          <strong>GitHub Actions</strong> triggers a workflow that:
+        </p>
+        <ul>
+          <li>Trains the model on a subset of data.</li>
+          <li>Generates a classification report and confusion matrix.</li>
+        </ul>
+
+        <h2>Comprehensive Testing</h2>
+        <p>
+          To maintain code quality, I implemented a robust testing suite using <strong>pytest</strong>.
+          The pipeline includes:
+        </p>
+        <ul>
+          <li><strong>Unit Tests:</strong> Checking data loaders, model output shapes, and training loops.</li>
+          <li><strong>Linting:</strong> Enforcing style with <code>flake8</code>, <code>black</code>, and <code>isort</code>.</li>
+          <li><strong>Type Checking:</strong> Static analysis with <code>mypy</code>.</li>
+        </ul>
+
+        <h2>Experiment Tracking</h2>
+        <p>
+          Tracking metrics across dozens of runs can get messy. This project supports both <strong>MLflow</strong>
+          and <strong>Weights & Biases (W&B)</strong> to log loss, accuracy, and hyperparameters, making it easy to compare different architecture decisions.
+        </p>
+
+        <h2>Conclusion</h2>
+        <p>
+          Building this project reinforced that MLOps is not just about tools—it's about culture and discipline.
+          By leveraging <strong>Docker</strong>, <strong>GitHub Actions</strong>, and tools like DVC, we transform
+          fragile scripts into robust engineering systems.
+        </p>
+
+        <p style="margin-top: 2rem;">
+          <a href="https://github.com/Hadayxinchao/end-to-end-image-classifier" target="_blank" class="blog-read-more">
+            View the Source Code on GitHub →
+          </a>
+        </p>
+
+      </div>
+    </main>
+
+    <footer>
+      <p>© 2025 Bui Hoang Ha.</p>
+    </footer>
+  </div>
+</body>
+
+</html>
