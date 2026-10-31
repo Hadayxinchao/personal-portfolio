@@ -1,48 +1,98 @@
 <!DOCTYPE html>
-<html lang="en" class="bg-white min-h-screen">
-
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MLOps in Practice: Building an End-to-End Image Classifier</title>
+  <meta name="description" content="Building an image classification pipeline with Hydra, DVC, Docker, GitHub Actions, CML, and experiment tracking." />
+  <title>MLOps in Practice: Building an End-to-End Image Classifier | Bui Hoang Ha</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Jost:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="/styles/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/styles.css" />
+  <link rel="stylesheet" href="styles/editorial.css" />
+  <link rel="stylesheet" href="styles/articles.css" />
+  <link rel="canonical" href="https://hadayxinchao.pages.dev/blog_5" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Hadayxinchao — Bui Hoang Ha" />
+  <meta property="og:title" content="MLOps in Practice: Building an End-to-End Image Classifier | Bui Hoang Ha" />
+  <meta property="og:description" content="Building an image classification pipeline with Hydra, DVC, Docker, GitHub Actions, CML, and experiment tracking." />
+  <meta property="og:url" content="https://hadayxinchao.pages.dev/blog_5" />
+  <meta property="og:image" content="https://hadayxinchao.pages.dev/images/profile.jpg" />
+  <meta property="og:image:alt" content="Bui Hoang Ha" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="MLOps in Practice: Building an End-to-End Image Classifier | Bui Hoang Ha" />
+  <meta name="twitter:description" content="Building an image classification pipeline with Hydra, DVC, Docker, GitHub Actions, CML, and experiment tracking." />
+  <meta name="twitter:image" content="https://hadayxinchao.pages.dev/images/profile.jpg" />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "url": "https://hadayxinchao.pages.dev/blog_5", "headline": "MLOps in Practice: Building an End-to-End Image Classifier", "description": "Building an image classification pipeline with Hydra, DVC, Docker, GitHub Actions, CML, and experiment tracking.", "author": {"@type": "Person", "name": "Bui Hoang Ha", "alternateName": "Hadayxinchao", "url": "https://hadayxinchao.pages.dev/", "sameAs": ["https://github.com/Hadayxinchao", "https://www.linkedin.com/in/hadayxinchao/"]}, "mainEntityOfPage": "https://hadayxinchao.pages.dev/blog_5"}</script>
 </head>
-
-<body class="text-slate-700 font-sans font-light min-h-screen">
+<body class="portfolio-page article-page">
+  <a class="skip-link" href="#article-content">Skip to article</a>
   <div class="container">
-    <header>
-      <div class="header-avatar">
-        <a href="index.html">
-          <img src="./images/profile.jpg" alt="Bui Hoang Ha Avatar">
-        </a>
-      </div>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="header-brand" href="index.html#hero" aria-label="Bui Hoang Ha Homepage">
+          <div class="avatar-wrapper">
+            <img class="avatar-img" src="./images/profile.jpg" alt="Bui Hoang Ha Avatar" />
 
-      <div>
-        <a class="logo" href="index.html">
-          Bui Hoang Ha
+          </div>
+          <div class="brand-text">
+            <span class="brand-name">Bui Hoang Ha</span>
+            <span class="brand-role">Backend & DevOps Engineer</span>
+          </div>
         </a>
 
-        <nav>
-          <a href="index.html#projects">Projects</a>
-          <a href="index.html#blog">Articles</a>
-          <a href="index.html#about">About</a>
-          <a href="index.html#contact">Contact</a>
-        </nav>
+        <div class="nav-container">
+          <nav>
+            <ul class="nav-links">
+              <li><a href="index.html#projects">Projects</a></li>
+              <li><a href="index.html#experience">Experience</a></li>
+              <li><a href="index.html#skills">Skills</a></li>
+              <li><a href="index.html#blog" aria-current="page">Articles</a></li>
+              <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+          </nav>
+
+          <div class="header-actions">
+            <!-- Theme Toggle Button -->
+            <button class="theme-toggle-btn" type="button" aria-label="Toggle dark/light theme" title="Toggle theme">
+              <svg class="theme-icon-sun" style="display:none;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+              </svg>
+              <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+              </svg>
+            </button>
+
+            <!-- Mobile Hamburger Menu Button -->
+            <button class="mobile-menu-btn" type="button" aria-label="Open mobile navigation" aria-expanded="false">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+        </div>
       </div>
     </header>
-
-    <main>
-      <div class="back-link">
-        <a href="index.html#blog">← Back to Articles</a>
-      </div>
-
-      <div class="blog-content">
-        <h1>MLOps in Practice: Building an End-to-End Image Classifier</h1>
+    <main id="article-top" class="article-main">
+      <a class="article-back" href="index.html#blog">← All articles</a>
+      <article aria-labelledby="article-title">
+        <header class="article-heading">
+          <p class="eyebrow">Notes from the journey / MLOps &amp; Cloud</p>
+          <h1 id="article-title">MLOps in Practice: Building an End-to-End Image Classifier</h1>
+          <div class="article-meta"><span>By Bui Hoang Ha</span><time datetime="2025-12">Dec 2025</time><span>6 min read</span></div>
+        </header>
+        <div id="article-content" class="blog-content" tabindex="-1">
 
         <p>
           In machine learning, training a model is often the easiest part. The real challenge lies in building a
@@ -123,18 +173,30 @@ python src/training/train.py model=resnet data=cifar10 hyperparameters.learning_
         </p>
 
         <p style="margin-top: 2rem;">
-          <a href="https://github.com/Hadayxinchao/end-to-end-image-classifier" target="_blank" class="blog-read-more">
+          <a href="https://github.com/Hadayxinchao/end-to-end-image-classifier" target="_blank" rel="noopener noreferrer" class="blog-read-more">
             View the Source Code on GitHub →
           </a>
         </p>
 
-      </div>
-    </main>
 
-    <footer>
-      <p>© 2025 Bui Hoang Ha.</p>
+        </div>
+      </article>
+      <nav class="article-pagination" aria-label="More articles"><a href="blog_4.html"><span class="eyebrow">Previous article</span><strong>Conquering the first Half Marathon: My 2h 50m Journey</strong><span aria-hidden="true">↗</span></a><a href="blog_6.html"><span class="eyebrow">Next article</span><strong>Building and Operating Backends at The Umdenken</strong><span aria-hidden="true">↗</span></a></nav>
+    </main>
+    <footer class="site-footer">
+      <div>
+        © 2026 Bui Hoang Ha · Made with intention.
+      </div>
+      <div>
+        Ho Chi Minh City, Vietnam · <a href="#article-top">Back to top ↑</a>
+      </div>
     </footer>
   </div>
+  <button class="scroll-top-btn" type="button" aria-label="Scroll to top" title="Scroll to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+  <script src="scripts/main.js"></script>
 </body>
-
 </html>

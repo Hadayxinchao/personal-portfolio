@@ -1,269 +1,752 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Bui Hoang Ha | Developer Portfolio and Blog">
-  <title>Bui Hoang Ha - Dev Blog</title>
+  <meta name="description" content="Bui Hoang Ha (Hadayxinchao), a backend and DevOps engineer in Ho Chi Minh City. Explore Rails, Django, AWS projects and engineering articles." />
+  <meta name="keywords" content="Bui Hoang Ha, Backend Engineer, DevOps, Ruby on Rails, Django, AWS, PostgreSQL, RAG, Portfolio">
+  <title>Bui Hoang Ha (Hadayxinchao) — Backend &amp; DevOps Engineer</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Jost:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/styles.css" />
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="styles/editorial.css" />
+  <link rel="canonical" href="https://hadayxinchao.pages.dev/" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Hadayxinchao — Bui Hoang Ha" />
+  <meta property="og:title" content="Bui Hoang Ha (Hadayxinchao) — Backend &amp; DevOps Engineer" />
+  <meta property="og:description" content="Bui Hoang Ha (Hadayxinchao), a backend and DevOps engineer in Ho Chi Minh City. Explore Rails, Django, AWS projects and engineering articles." />
+  <meta property="og:url" content="https://hadayxinchao.pages.dev/" />
+  <meta property="og:image" content="https://hadayxinchao.pages.dev/images/profile.jpg" />
+  <meta property="og:image:alt" content="Bui Hoang Ha" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Bui Hoang Ha (Hadayxinchao) — Backend &amp; DevOps Engineer" />
+  <meta name="twitter:description" content="Bui Hoang Ha (Hadayxinchao), a backend and DevOps engineer in Ho Chi Minh City. Explore Rails, Django, AWS projects and engineering articles." />
+  <meta name="twitter:image" content="https://hadayxinchao.pages.dev/images/profile.jpg" />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfilePage", "url": "https://hadayxinchao.pages.dev/", "mainEntity": {"@type": "Person", "name": "Bui Hoang Ha", "alternateName": "Hadayxinchao", "url": "https://hadayxinchao.pages.dev/", "sameAs": ["https://github.com/Hadayxinchao", "https://www.linkedin.com/in/hadayxinchao/"]}}</script>
 </head>
 
-<body class="bg-white min-h-screen">
+<body class="portfolio-page">
+  <a class="skip-link" href="#projects">Skip to projects</a>
   <div class="container">
-    <header>
-      <div class="header-avatar">
-        <a href="#home">
-          <img src="./images/profile.jpg" alt="Bui Hoang Ha Avatar">
-        </a>
-      </div>
+    <!-- Sticky Glassmorphism Header -->
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="header-brand" href="#hero" aria-label="Bui Hoang Ha Homepage">
+          <div class="avatar-wrapper">
+            <img class="avatar-img" src="./images/profile.jpg" alt="Bui Hoang Ha Avatar" />
 
-      <div>
-        <a class="logo" href="#home">
-          Bui Hoang Ha
+          </div>
+          <div class="brand-text">
+            <span class="brand-name">Bui Hoang Ha</span>
+            <span class="brand-role">Backend & DevOps Engineer</span>
+          </div>
         </a>
 
-        <nav>
-          <a href="#projects">Projects</a>
-          <a href="#blog">Articles</a>
-          <a href="#about">About</a>
-          <a href="#contact">Contact</a>
-        </nav>
+        <div class="nav-container">
+          <nav>
+            <ul class="nav-links">
+              <li><a href="#projects">Projects</a></li>
+              <li><a href="#experience">Experience</a></li>
+              <li><a href="#skills">Skills</a></li>
+              <li><a href="#blog">Articles</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </nav>
+
+          <div class="header-actions">
+            <!-- Theme Toggle Button -->
+            <button class="theme-toggle-btn" type="button" aria-label="Toggle dark/light theme" title="Toggle theme">
+              <svg class="theme-icon-sun" style="display:none;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+              </svg>
+              <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+              </svg>
+            </button>
+
+            <!-- Mobile Hamburger Menu Button -->
+            <button class="mobile-menu-btn" type="button" aria-label="Open mobile navigation" aria-expanded="false">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+        </div>
       </div>
     </header>
 
     <main>
       <div class="content-grid">
         <!-- Hero Section -->
-        <section class="card-section">
-          <div class="hero">
-              <h1>Backend Developer & AI Integrator</h1>
-              <p class="subtitle">
-                3 years building scalable, data-intensive systems and AI-assisted backend services.<br>
-                Strong expertise in <span style="color: #cc0000; font-weight: 600;">Ruby on Rails</span>, RESTful APIs, and LLM/RAG integration.
-              </p>
-              <p class="description">
-                Skilled in cross-functional collaboration with AI engineers, data teams, and product stakeholders to deliver reliable, high-quality backend solutions.
-              </p>
-              <p class="description">
-                Based in Hanoi, Vietnam. IELTS: 6.5 | <span style="font-weight:600;">+84 981-604-006</span>
-              </p>
-              <p class="description">
-                Find me on <a href="https://github.com/Hadayxinchao" target="_blank" style="color: var(--accent);">GitHub</a> and
-                <a href="https://linkedin.com/in/hadayxinchao" target="_blank" style="color: var(--accent);">LinkedIn</a>.
-              </p>
+        <section id="hero" class="card-section">
+          <div class="hero-wrapper">
+            <div class="hero-pill">
+              <span class="hero-pill-dot"></span>
+              Backend · Cloud · AI Integrations
+            </div>
+
+            <p class="eyebrow">BUI HOANG HA / BACKEND & DEVOPS ENGINEER</p>
+            <h1 class="hero-title">Behind the scenes.<br><em>Beyond the ordinary.</em></h1>
+            <p class="hero-subtitle">I build the systems that make products work.<br>From Rails and Django services to cloud operations and AI integrations.</p>
+            <p class="hero-description">I’m Bui Hoang Ha, also known online as Hadayxinchao. I have 3+ years of experience building backend services, learning platforms, and data pipelines. My work connects product features with access control, deployment, and reliable operations.</p>
+            <!-- Action CTAs -->
+            <div class="hero-actions">
+              <a href="#contact" class="btn btn-primary">
+                Get in Touch
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+              <a href="#projects" class="btn btn-secondary">
+                View Projects
+              </a>
+              <button class="btn btn-copy-email" type="button" data-email="smithmerch2301@gmail.com" title="Copy email address">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+                Copy Email
+              </button>
+            </div>
+
+          </div>
+          <aside class="identity-card" aria-label="About Ha">
+            <div class="portrait-frame"><img src="images/profile.jpg" alt="Bui Hoang Ha" width="600" height="700" fetchpriority="high"><span class="portrait-label">THE HUMAN BEHIND THE CODE</span></div>
+            <div class="identity-caption"><span>Ha, at a glance.</span><span>Ho Chi Minh City, VN ↗</span></div>
+            <p>Backend engineer.<br>AI explorer. Distance runner.</p>
+            <a href="blog_4.html">A little beyond the keyboard ↗</a>
+          </aside>
+          <div class="hero-bottom">
+            <!-- Stat Chips / Highlights -->
+            <div class="hero-stats-grid">
+              <div class="hero-stat-card">
+                <span class="hero-stat-value">3+ years</span>
+                <span class="hero-stat-label">Backend Experience</span>
+              </div>
+              <div class="hero-stat-card">
+                <span class="hero-stat-value">Rails / Python</span>
+                <span class="hero-stat-label">Core Tech Stack</span>
+              </div>
+              <div class="hero-stat-card">
+                <span class="hero-stat-value">LLM / RAG</span>
+                <span class="hero-stat-label">Retrieval & AI Integrations</span>
+              </div>
+              <div class="hero-stat-card">
+                <span class="hero-stat-value">HUST</span>
+                <span class="hero-stat-label">CS & GenAI Specialty</span>
+              </div>
+            </div>
+
+            <!-- Social Links & Details Pill Bar -->
+            <div class="hero-socials">
+              <a href="https://github.com/Hadayxinchao" target="_blank" rel="noopener noreferrer" class="social-pill">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                </svg>
+                GitHub
+              </a>
+
+              <a href="https://linkedin.com/in/hadayxinchao" target="_blank" rel="noopener noreferrer" class="social-pill">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                </svg>
+                LinkedIn
+              </a>
+
+              <a href="mailto:smithmerch2301@gmail.com" class="social-pill">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                smithmerch2301@gmail.com
+              </a>
+
+              <span class="info-pill">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                Ho Chi Minh City, Vietnam
+              </span>
+
+              <span class="info-pill">
+                📞 +84 981-604-006
+              </span>
+            </div>
           </div>
         </section>
 
         <!-- Projects Section -->
         <section id="projects">
-            <h2 class="section-header" style="margin-bottom: 2.5rem;">Projects</h2>
-            <div class="project-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem;">
-              <a class="project-card" href="blog_5.html" target="_blank" style="background: var(--card-bg); border-radius: 1.5rem; box-shadow: var(--shadow-lg); border: 1px solid var(--border); padding: 2rem 1.5rem; display: flex; flex-direction: column; justify-content: space-between; text-decoration: none; transition: box-shadow 0.2s, transform 0.2s; color: inherit;">
-                <div class="project-card-content">
-                  <div class="project-meta" style="margin-bottom: 0.5rem;">
-                    <p class="project-title" style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">MLOps Image Classifier</p>
-                  </div>
-                  <p class="project-description" style="margin-bottom: 1.25rem; color: var(--text-light);">
-                    End-to-end image classification pipeline with MLOps best practices: CI/CD, Docker, DVC, CML, MLflow, and automated reporting. Read the full project blog for details and source code.
-                  </p>
-                  <p class="project-link" style="color: var(--accent); font-weight: 500;">Read Project Blog</p>
+          <p class="section-kicker">01 / A selection of systems I’ve built.</p>
+          <h2 class="section-header">Selected work</h2>
+          <div class="project-grid">
+            <!-- Professional work: The Umdenken -->
+            <article class="project-card">
+              <div class="project-visual network" aria-label="ULearn: learning, access control, and analytics">
+                <div class="visual-caption">ULEARN / LEARNING PLATFORM<span>01</span></div>
+                <div class="system-diagram"><span>LEARN<small>Rails APIs</small></span><b>→</b><span>STREAM<small>CloudFront</small></span><b>→</b><span>MEASURE<small>Analytics</small></span></div>
+                <div class="visual-footnote">Professional work / The Umdenken</div>
+              </div>
+              <div>
+                <div class="project-header-row"><span class="project-badge">Backend &amp; Cloud</span></div>
+                <h3 class="project-title">ULearn Learning Platform</h3>
+                <p class="project-description">Built backend workflows for organizations, enrollment, learning paths, rewards, and marketing. Contributions include permission-based access, private HLS delivery, asynchronous analytics, and transcript and vector-retrieval foundations for future RAG capabilities.</p>
+              </div>
+              <div>
+                <a class="project-action-link" href="blog_6.html">Read about my work at The Umdenken ↗</a>
+                <div class="project-tech-bar"><span class="tech-tag">Rails</span><span class="tech-tag">PostgreSQL</span><span class="tech-tag">AWS</span><span class="tech-tag">Sidekiq</span><span class="tech-tag">Elasticsearch</span></div>
+              </div>
+            </article>
+            <article class="project-card">
+              <div class="project-visual queue" aria-label="Events: registration, waitlists, and asynchronous email">
+                <div class="visual-caption">DJANGO / CONTENT &amp; EVENTS<span>02</span></div>
+                <div class="system-diagram"><span>REGISTER<small>Capacity check</small></span><b>→</b><span>CONFIRM<small>Or waitlist</small></span><b>→</b><span>NOTIFY<small>Email outbox</small></span></div>
+                <div class="visual-footnote">Professional work / The Umdenken</div>
+              </div>
+              <div>
+                <div class="project-header-row"><span class="project-badge">Django &amp; Operations</span></div>
+                <h3 class="project-title">Website &amp; Event Backend</h3>
+                <p class="project-description">Developed APIs for articles, classes, media, and events. Implemented capacity-aware registration, waitlists, payment-status tracking, and asynchronous email with retries, alongside Docker and GitHub Actions deployments to AWS ECS/Fargate.</p>
+              </div>
+              <div>
+                <a class="project-action-link" href="blog_6.html">Read about my work at The Umdenken ↗</a>
+                <div class="project-tech-bar"><span class="tech-tag">Django / DRF</span><span class="tech-tag">PostgreSQL</span><span class="tech-tag">ECS / Fargate</span><span class="tech-tag">GitHub Actions</span></div>
+              </div>
+            </article>
+
+            <!-- Project 1: MLOps Image Classifier -->
+            <article class="project-card">
+              <div class="project-visual pipeline" aria-label="ML / DELIVERY PIPELINE"><div class="visual-caption">ML / DELIVERY PIPELINE<span>03</span></div><div class="system-diagram"><span>DATA<small>DVC + S3</small></span><b>→</b><span>TRAIN<small>Python</small></span><b>→</b><span>SHIP<small>Docker + CI</small></span></div><div class="visual-footnote">Architecture sketch / 03</div></div>
+              <div>
+                <div class="project-header-row">
+                  <span class="project-badge">MLOps & Cloud</span>
+                  <a href="blog_5.html" class="project-icon-link" aria-label="Open MLOps project blog" target="_blank">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="7" y1="17" x2="17" y2="7"></line>
+                      <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
+                  </a>
                 </div>
-                <div class="project-tech-bar" style="display: flex; gap: 0.75rem; margin-top: 1rem;">
-                  <p class="tech-tag"><span class="tech-dot tech-python"></span>Python</p>
-                  <p class="tech-tag"><span class="tech-dot tech-docker"></span>Docker</p>
-                  <p class="tech-tag"><span class="tech-dot tech-aws"></span>AWS</p>
-                  <p class="tech-tag"><span class="tech-dot tech-ml"></span>MLOps</p>
-                </div>
-              </a>
-              <a class="project-card" href="https://github.com/Hadayxinchao/password-manager" target="_blank" style="background: var(--card-bg); border-radius: 1.5rem; box-shadow: var(--shadow-lg); border: 1px solid var(--border); padding: 2rem 1.5rem; display: flex; flex-direction: column; justify-content: space-between; text-decoration: none; transition: box-shadow 0.2s, transform 0.2s; color: inherit;">
-                <div class="project-card-content">
-                  <div class="project-meta" style="margin-bottom: 0.5rem;">
-                    <p class="project-title" style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">Password Manager</p>
-                  </div>
-                  <p class="project-description" style="margin-bottom: 1.25rem; color: var(--text-light);">
-                    Secure password manager using Ruby on Rails 8 and Hotwire. Chrome Extension for autofill workflows, encrypted storage with Active Record Encryption.
-                  </p>
-                  <p class="project-link" style="color: var(--accent); font-weight: 500;">View Repo</p>
-                </div>
-                <div class="project-tech-bar" style="display: flex; gap: 0.75rem; margin-top: 1rem;">
-                  <p class="tech-tag"><span class="tech-dot tech-rails"></span>Rails</p>
-                  <p class="tech-tag"><span class="tech-dot tech-javascript"></span>Hotwire</p>
-                  <p class="tech-tag"><span class="tech-dot tech-css"></span>Chrome Extension</p>
-                </div>
-              </a>
-              <div class="project-card" style="background: var(--card-bg); border-radius: 1.5rem; box-shadow: var(--shadow-lg); border: 1px solid var(--border); padding: 2rem 1.5rem; display: flex; flex-direction: column; justify-content: space-between; transition: box-shadow 0.2s, transform 0.2s;">
-                <div class="project-card-content">
-                  <div class="project-meta" style="margin-bottom: 0.5rem;">
-                    <p class="project-title" style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">Social Network Website</p>
-                  </div>
-                  <p class="project-description" style="margin-bottom: 1.25rem; color: var(--text-light);">
-                    Real-time social platform using Action Cable, authentication via Devise, RESTful APIs, and full RSpec test coverage.
-                  </p>
-                </div>
-                <div class="project-tech-bar" style="display: flex; gap: 0.75rem; margin-top: 1rem;">
-                  <p class="tech-tag"><span class="tech-dot tech-rails"></span>Rails</p>
-                  <p class="tech-tag"><span class="tech-dot tech-javascript"></span>Action Cable</p>
-                  <p class="tech-tag"><span class="tech-dot tech-css"></span>RSpec</p>
+                <h3 class="project-title">MLOps Image Classifier</h3>
+                <p class="project-description">
+                  Production-ready, end-to-end image classification pipeline adhering to industry MLOps best practices: Hydra configuration management, DVC data versioning with AWS S3 remote storage, Dockerized CI/CD via GitHub Actions, and automated CML pull-request metric reporting.
+                </p>
+              </div>
+              <div>
+                <a class="project-action-link" href="blog_5.html" target="_blank">
+                  Read Case Study Blog
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </a>
+                <div class="project-tech-bar">
+                  <span class="tech-tag"><span class="tech-dot tech-python"></span>Python</span>
+                  <span class="tech-tag"><span class="tech-dot tech-docker"></span>Docker</span>
+                  <span class="tech-tag"><span class="tech-dot tech-aws"></span>AWS S3</span>
+                  <span class="tech-tag"><span class="tech-dot tech-ml"></span>DVC / CML</span>
                 </div>
               </div>
-              <div class="project-card" style="background: var(--card-bg); border-radius: 1.5rem; box-shadow: var(--shadow-lg); border: 1px solid var(--border); padding: 2rem 1.5rem; display: flex; flex-direction: column; justify-content: space-between; transition: box-shadow 0.2s, transform 0.2s;">
-                <div class="project-card-content">
-                  <div class="project-meta" style="margin-bottom: 0.5rem;">
-                    <p class="project-title" style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">Booking Application</p>
-                  </div>
-                  <p class="project-description" style="margin-bottom: 1.25rem; color: var(--text-light);">
-                    Ticket booking system with asynchronous background processing using Sidekiq, and Docker-based deployment.
-                  </p>
+            </article>
+
+            <!-- Project 2: Password Manager -->
+            <article class="project-card">
+              <div class="project-visual vault" aria-label="RAILS / ENCRYPTED STORAGE"><div class="visual-caption">RAILS / ENCRYPTED STORAGE<span>04</span></div><div class="system-diagram"><span class="vault-symbol">✳</span><span>Private by design.<small>Active Record Encryption</small></span></div><div class="visual-footnote">Architecture sketch / 04</div></div>
+              <div>
+                <div class="project-header-row">
+                  <span class="project-badge">Rails 8 & Security</span>
+                  <a href="https://github.com/Hadayxinchao/password-manager" target="_blank" rel="noopener noreferrer" class="project-icon-link" aria-label="Open Password Manager GitHub repository">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="7" y1="17" x2="17" y2="7"></line>
+                      <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
+                  </a>
                 </div>
-                <div class="project-tech-bar" style="display: flex; gap: 0.75rem; margin-top: 1rem;">
-                  <p class="tech-tag"><span class="tech-dot tech-rails"></span>Rails</p>
-                  <p class="tech-tag"><span class="tech-dot tech-javascript"></span>Sidekiq</p>
-                  <p class="tech-tag"><span class="tech-dot tech-css"></span>Docker</p>
+                <h3 class="project-title">Secure Password Manager</h3>
+                <p class="project-description">
+                  Modern password manager built on Ruby on Rails 8 and Hotwire. Features end-to-end encrypted storage powered by Active Record Encryption, responsive web interface, and an integrated Chrome Extension for smooth credential autofill workflows.
+                </p>
+              </div>
+              <div>
+                <a class="project-action-link" href="https://github.com/Hadayxinchao/password-manager" target="_blank" rel="noopener noreferrer">
+                  View GitHub Repository
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </a>
+                <div class="project-tech-bar">
+                  <span class="tech-tag"><span class="tech-dot tech-rails"></span>Rails 8</span>
+                  <span class="tech-tag"><span class="tech-dot tech-javascript"></span>Hotwire</span>
+                  <span class="tech-tag"><span class="tech-dot tech-css"></span>Chrome Extension</span>
+                  <span class="tech-tag"><span class="tech-dot tech-postgresql"></span>AR Encryption</span>
                 </div>
               </div>
-            </div>
+            </article>
+
+            <!-- Project 3: Social Network Platform -->
+            <article class="project-card">
+              <div class="project-visual network" aria-label="REALTIME / CONNECTIONS"><div class="visual-caption">REALTIME / CONNECTIONS<span>05</span></div><div class="system-diagram"><span>Client</span><b>↔</b><span>Action Cable</span><b>↔</b><span>Client</span></div><div class="visual-footnote">Architecture sketch / 05</div></div>
+              <div>
+                <div class="project-header-row">
+                  <span class="project-badge">Fullstack & WebSockets</span>
+                  <div class="project-icon-link">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                    </svg>
+                  </div>
+                </div>
+                <h3 class="project-title">Social Network Platform</h3>
+                <p class="project-description">
+                  Real-time interactive social network application with WebSocket live messaging via Rails Action Cable, Devise multi-role authentication, responsive UI components, and complete test suite with 90%+ code coverage using RSpec.
+                </p>
+              </div>
+              <div>
+                <div class="project-tech-bar">
+                  <span class="tech-tag"><span class="tech-dot tech-rails"></span>Rails</span>
+                  <span class="tech-tag"><span class="tech-dot tech-javascript"></span>Action Cable</span>
+                  <span class="tech-tag"><span class="tech-dot tech-postgresql"></span>PostgreSQL</span>
+                  <span class="tech-tag"><span class="tech-dot tech-css"></span>RSpec</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Project 4: Booking Application -->
+            <article class="project-card">
+              <div class="project-visual queue" aria-label="ASYNC / RESERVATIONS"><div class="visual-caption">ASYNC / RESERVATIONS<span>06</span></div><div class="system-diagram"><span>Request</span><b>→</b><span>Redis / Sidekiq</span><b>→</b><span>Reserved</span></div><div class="visual-footnote">Architecture sketch / 06</div></div>
+              <div>
+                <div class="project-header-row">
+                  <span class="project-badge">Distributed & Async</span>
+                  <div class="project-icon-link">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                      <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                    </svg>
+                  </div>
+                </div>
+                <h3 class="project-title">Ticket Booking System</h3>
+                <p class="project-description">
+                  High-reliability reservation system designed to handle spike traffic. Implements asynchronous seat reservation queues and notifications using Sidekiq background workers, Redis cache locks, and reproducible Docker multi-stage deployments.
+                </p>
+              </div>
+              <div>
+                <div class="project-tech-bar">
+                  <span class="tech-tag"><span class="tech-dot tech-rails"></span>Rails</span>
+                  <span class="tech-tag"><span class="tech-dot tech-javascript"></span>Sidekiq</span>
+                  <span class="tech-tag"><span class="tech-dot tech-postgresql"></span>Redis</span>
+                  <span class="tech-tag"><span class="tech-dot tech-docker"></span>Docker</span>
+                </div>
+              </div>
+            </article>
+          </div>
         </section>
 
-        <!-- Blog Section -->
+        <!-- Experience & Education Timeline -->
+        <section id="experience" class="card-section">
+          <p class="section-kicker">02 / Experience & education</p>
+          <h2 class="section-header">Work Experience & Education</h2>
+
+          <div class="timeline-list">
+            <!-- Experience: The Umdenken -->
+            <div class="timeline-item" id="umdenken-experience">
+              <span class="timeline-dot"></span>
+              <div class="timeline-header">
+                <div>
+                  <span class="timeline-role">Backend &amp; DevOps Engineer</span> ·
+                  <span class="timeline-company">The Umdenken</span>
+                </div>
+                <span class="timeline-date">Feb 2026 — Oct 2026</span>
+              </div>
+              <ul class="timeline-bullets">
+                <li>Developed ULearn's Rails backend for organization-based enrollment, seat allocation, learning paths, rewards, referrals, and marketing workflows.</li>
+                <li>Implemented permission-based authorization, refresh-token rotation, and session revocation; extended private HLS video delivery through S3 and CloudFront.</li>
+                <li>Built Django content and event APIs with capacity-aware registration, waitlists, payment-status tracking, and a retryable email outbox.</li>
+                <li>Built analytics ingestion with Redis Streams, Sidekiq, and Elasticsearch; removed N+1 queries from reward eligibility checks through batched loading and indexes.</li>
+                <li>Maintained deployment and backup workflows, introduced Terraform for selected AWS security and monitoring resources, and built transcript and permission-scoped retrieval foundations for RAG.</li>
+              </ul>
+              <div class="timeline-tags">
+                <span class="tech-tag">Ruby on Rails</span><span class="tech-tag">Django</span>
+                <span class="tech-tag">AWS</span><span class="tech-tag">PostgreSQL</span>
+                <span class="tech-tag">Redis / Sidekiq</span><span class="tech-tag">Elasticsearch</span>
+              </div>
+            </div>
+
+            <!-- Experience: Adamo Software -->
+            <div class="timeline-item">
+              <span class="timeline-dot"></span>
+              <div class="timeline-header">
+                <div>
+                  <span class="timeline-role">Backend Developer & AI Integrator</span> ·
+                  <span class="timeline-company">Adamo Software</span>
+                </div>
+                <span class="timeline-date">Mar 2023 — Jan 2026</span>
+              </div>
+              <ul class="timeline-bullets">
+                <li>Designed and scaled backend architecture for a high-volume Product Information Management (PIM) platform in the tours & activities sector.</li>
+                <li>Implemented a production conversational assistant using Retrieval-Augmented Generation (RAG) and OpenAI LLMs to automate document search and customer inquiries.</li>
+                <li>Architected multi-source bulk product ingestion, automated Things-To-Do (TTD) status synchronization, and optimized complex PostgreSQL queries for real-time dashboard analytics.</li>
+                <li>Investigated performance bottlenecks and resolved production issues across backend services.</li>
+              </ul>
+              <div class="timeline-tags">
+                <span class="tech-tag"><span class="tech-dot tech-rails"></span>Ruby on Rails</span>
+                <span class="tech-tag"><span class="tech-dot tech-ml"></span>OpenAI / RAG</span>
+                <span class="tech-tag"><span class="tech-dot tech-postgresql"></span>PostgreSQL</span>
+                <span class="tech-tag"><span class="tech-dot tech-javascript"></span>Redis / Sidekiq</span>
+                <span class="tech-tag"><span class="tech-dot tech-docker"></span>Docker</span>
+              </div>
+            </div>
+
+            <!-- Experience: Samsung R&D -->
+            <div class="timeline-item">
+              <span class="timeline-dot"></span>
+              <div class="timeline-header">
+                <div>
+                  <span class="timeline-role">Software Engineer Intern</span> ·
+                  <span class="timeline-company">Samsung R&D Center Vietnam</span>
+                </div>
+                <span class="timeline-date">Jun 2022 — Oct 2022</span>
+              </div>
+            </div>
+
+            <!-- Education: HUST Master/Certificate in GenAI -->
+            <div class="timeline-item">
+              <span class="timeline-dot"></span>
+              <div class="timeline-header">
+                <div>
+                  <span class="timeline-role">Generative Artificial Intelligence Engineering</span> ·
+                  <span class="timeline-company">Hanoi University of Science and Technology</span>
+                </div>
+                <span class="timeline-date">Oct 2025 — Present</span>
+              </div>
+              <p class="timeline-desc">
+                Advanced studies in deep learning architectures, Transformer models, fine-tuning LLMs, multi-modal systems, and autonomous agent workflows.
+              </p>
+            </div>
+
+            <!-- Education: HUST Bachelor -->
+            <div class="timeline-item">
+              <span class="timeline-dot"></span>
+              <div class="timeline-header">
+                <div>
+                  <span class="timeline-role">Bachelor of Engineering in Computer Science</span> ·
+                  <span class="timeline-company">Hanoi University of Science and Technology</span>
+                </div>
+                <span class="timeline-date">Oct 2020 — Feb 2025</span>
+              </div>
+              <p class="timeline-desc">
+                Graduated with GPA 3.01. Comprehensive foundation in Algorithms, Data Structures, Operating Systems, Database Management Systems, and Software Architecture.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="card-section">
+          <p class="section-kicker">03 / Tools, chosen for the job.</p>
+          <h2 class="section-header">My working toolkit</h2>
+          <div class="skills-grid">
+            <div class="skill-category">
+              <h4>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="16 18 22 12 16 6"></polyline>
+                  <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+                Languages
+              </h4>
+              <div class="skill-badges">
+                <span class="skill-pill">Ruby</span>
+                <span class="skill-pill">Python</span>
+                <span class="skill-pill">JavaScript</span>
+                <span class="skill-pill">Node.js</span>
+                <span class="skill-pill">SQL</span>
+                <span class="skill-pill">HTML / CSS</span>
+              </div>
+            </div>
+
+            <div class="skill-category">
+              <h4>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                  <line x1="8" y1="21" x2="16" y2="21"></line>
+                  <line x1="12" y1="17" x2="12" y2="21"></line>
+                </svg>
+                Frameworks & Web
+              </h4>
+              <div class="skill-badges">
+                <span class="skill-pill">Ruby on Rails</span>
+                <span class="skill-pill">Django / DRF</span>
+                <span class="skill-pill">RBAC / JWT</span>
+                <span class="skill-pill">FastAPI</span>
+                <span class="skill-pill">ReactJS</span>
+                <span class="skill-pill">Hotwire / Turbo</span>
+                <span class="skill-pill">StimulusJS</span>
+                <span class="skill-pill">RESTful APIs</span>
+              </div>
+            </div>
+
+            <div class="skill-category">
+              <h4>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="3"></circle>
+                  <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                </svg>
+                AI & RAG Integrations
+              </h4>
+              <div class="skill-badges">
+                <span class="skill-pill">OpenAI API</span>
+                <span class="skill-pill">RAG Workflows</span>
+                <span class="skill-pill">Vector Search / pgvector</span>
+                <span class="skill-pill">Prompt Engineering</span>
+                <span class="skill-pill">Hydra / CML</span>
+                <span class="skill-pill">DVC</span>
+              </div>
+            </div>
+
+            <div class="skill-category">
+              <h4>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                  <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                  <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                </svg>
+                Databases & Infrastructure
+              </h4>
+              <div class="skill-badges">
+                <span class="skill-pill">PostgreSQL</span>
+                <span class="skill-pill">Redis</span>
+                <span class="skill-pill">Docker</span>
+                <span class="skill-pill">Sidekiq</span>
+                <span class="skill-pill">AWS S3 / CloudFront</span>
+                <span class="skill-pill">ECS / Fargate / IAM</span>
+                <span class="skill-pill">Elasticsearch</span>
+                <span class="skill-pill">Terraform Foundations</span>
+                <span class="skill-pill">GitHub Actions</span>
+                <span class="skill-pill">HLS Streaming</span>
+                <span class="skill-pill">Google Cloud</span>
+                <span class="skill-pill">RSpec / CI/CD</span>
+                <span class="skill-pill">Git</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Blog / Articles Section -->
         <section id="blog">
-          <h2 class="section-header" style="margin-bottom: 2.5rem;">Articles</h2>
-          <div class="blog-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem;">
-            <article class="blog-card" style="background: var(--card-bg); border-radius: 1.5rem; box-shadow: var(--shadow-lg); border: 1px solid var(--border); padding: 2rem 1.5rem; display: flex; flex-direction: column; justify-content: space-between; transition: box-shadow 0.2s;">
-              <h3 class="blog-title" style="font-size: 1.35rem; font-weight: 700; margin-bottom: 0.75rem;">
-                <a href="blog_4.html" style="color: var(--text-dark); text-decoration: none;">🏃 Conquering the Half Marathon: My 2h 50m Journey</a>
-              </h3>
-              <p class="blog-meta" style="margin-bottom: 1rem;">
-                <span style="color: #16a34a; border: 1px solid #16a34a; padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.75rem;">Personal</span>
-                <span>30 November 2025</span>
-                <span>7 minute read</span>
-              </p>
-              <div class="blog-excerpt" style="margin-bottom: 1.25rem;">
-                <p>My first half marathon: training, race day, and lessons learned. From the starting line to the finish, here’s how I conquered 21km and what’s next in my running journey.</p>
+          <p class="section-kicker">04 / On code, curiosity, and everything between.</p>
+          <h2 class="section-header">Notes from the journey</h2>
+          <div class="blog-grid">
+            <!-- Article: The Umdenken retrospective -->
+            <article class="blog-card">
+              <div>
+                <div class="blog-meta">
+                  <span class="blog-category-tag tag-api">Backend &amp; DevOps</span>
+                  <time datetime="2026-10-31">31 Oct 2026</time>
+                  <span>6 min read</span>
+                </div>
+                <h3 class="blog-title"><a href="blog_6.html">Building and Operating Backends at The Umdenken</a></h3>
+                <p class="blog-excerpt">From learning workflows and private video delivery to event registration, analytics, and recovery: a look back at my work from February to October 2026.</p>
               </div>
-              <a class="blog-read-more" href="blog_4.html" style="color: var(--accent); font-weight: 500;">Read Article</a>
+              <a class="blog-read-more" href="blog_6.html">Read Article <span aria-hidden="true">↗</span></a>
             </article>
-            <article class="blog-card" style="background: var(--card-bg); border-radius: 1.5rem; box-shadow: var(--shadow-lg); border: 1px solid var(--border); padding: 2rem 1.5rem; display: flex; flex-direction: column; justify-content: space-between; transition: box-shadow 0.2s;">
-              <h3 class="blog-title" style="font-size: 1.35rem; font-weight: 700; margin-bottom: 0.75rem;">
-                <a href="blog_3.html" style="color: var(--text-dark); text-decoration: none;">Building a RAG Chatbot: Smarter AI Conversations</a>
-              </h3>
-              <p class="blog-meta" style="margin-bottom: 1rem;">
-                <span style="color: #38bdf8; border: 1px solid #38bdf8; padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.75rem;">AI & Chatbots</span>
-                <span>06 November 2025</span>
-                <span>6 minute read</span>
-              </p>
-              <div class="blog-excerpt" style="margin-bottom: 1.25rem;">
-                <p>Discover how Retrieval-Augmented Generation (RAG) chatbots combine LLMs with real-time data retrieval to deliver smarter, more reliable answers for support, knowledge bases, and technical assistants.</p>
+
+            <!-- Article 1: Marathon -->
+            <article class="blog-card">
+              <div>
+                <div class="blog-meta">
+                  <span class="blog-category-tag tag-personal">Personal</span>
+                  <span>📅 30 Nov 2025</span>
+                  <span>⏱️ 7 min read</span>
+                </div>
+                <h3 class="blog-title">
+                  <a href="blog_4.html">🏃 Conquering the Half Marathon: My 2h 50m Journey</a>
+                </h3>
+                <p class="blog-excerpt">
+                  My first half marathon: training strategy, race day reflections, and endurance lessons learned along the 21km route.
+                </p>
               </div>
-              <a class="blog-read-more" href="blog_3.html" style="color: var(--accent); font-weight: 500;">Read Article</a>
+              <a class="blog-read-more" href="blog_4.html">
+                Read Article
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
             </article>
-            <article class="blog-card" style="background: var(--card-bg); border-radius: 1.5rem; box-shadow: var(--shadow-lg); border: 1px solid var(--border); padding: 2rem 1.5rem; display: flex; flex-direction: column; justify-content: space-between; transition: box-shadow 0.2s;">
-              <h3 class="blog-title" style="font-size: 1.35rem; font-weight: 700; margin-bottom: 0.75rem;">
-                <a href="blog_2.html" style="color: var(--text-dark); text-decoration: none;">Using Microsoft Graph API to Automate 2FA Retrieval</a>
-              </h3>
-              <p class="blog-meta" style="margin-bottom: 1rem;">
-                <span style="color: #0ea5e9; border: 1px solid #0ea5e9; padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.75rem;">API Integration</span>
-                <span>22 July 2025</span>
-                <span>8 minute read</span>
-              </p>
-              <div class="blog-excerpt" style="margin-bottom: 1.25rem;">
-                <p>Explore how to programmatically access 2FA codes from Microsoft Authenticator for development workflows while maintaining security best practices.</p>
+
+            <!-- Article 2: RAG Chatbot -->
+            <article class="blog-card">
+              <div>
+                <div class="blog-meta">
+                  <span class="blog-category-tag tag-ai">AI & RAG</span>
+                  <span>📅 06 Nov 2025</span>
+                  <span>⏱️ 6 min read</span>
+                </div>
+                <h3 class="blog-title">
+                  <a href="blog_3.html">Building a RAG Chatbot: Smarter AI Conversations</a>
+                </h3>
+                <p class="blog-excerpt">
+                  Discover how Retrieval-Augmented Generation (RAG) chatbots combine LLMs with real-time vector retrieval to deliver reliable, contextual answers.
+                </p>
               </div>
-              <a class="blog-read-more" href="blog_2.html" style="color: var(--accent); font-weight: 500;">Read Article</a>
+              <a class="blog-read-more" href="blog_3.html">
+                Read Article
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
             </article>
-            <article class="blog-card" style="background: var(--card-bg); border-radius: 1.5rem; box-shadow: var(--shadow-lg); border: 1px solid var(--border); padding: 2rem 1.5rem; display: flex; flex-direction: column; justify-content: space-between; transition: box-shadow 0.2s;">
-              <h3 class="blog-title" style="font-size: 1.35rem; font-weight: 700; margin-bottom: 0.75rem;">
-                <a href="blog_1.html" style="color: var(--text-dark); text-decoration: none;">Understanding Rails Active Record Encryption</a>
-              </h3>
-              <p class="blog-meta" style="margin-bottom: 1rem;">
-                <span style="color: #cc0000; border: 1px solid #cc0000; padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.75rem;">Ruby on Rails</span>
-                <span>22 July 2025</span>
-                <span>5 minute read</span>
-              </p>
-              <div class="blog-excerpt" style="margin-bottom: 1.25rem;">
-                <p>Learn how to secure sensitive data in your Rails applications with Active Record Encryption, a powerful feature introduced in Rails 7. Explore implementation strategies and best practices.</p>
+
+            <!-- Article 3: Microsoft Graph API -->
+            <article class="blog-card">
+              <div>
+                <div class="blog-meta">
+                  <span class="blog-category-tag tag-api">API Integration</span>
+                  <span>📅 22 Jul 2025</span>
+                  <span>⏱️ 8 min read</span>
+                </div>
+                <h3 class="blog-title">
+                  <a href="blog_2.html">Using Microsoft Graph API to Automate 2FA Retrieval</a>
+                </h3>
+                <p class="blog-excerpt">
+                  Learn how to programmatically query verification codes via Microsoft Graph API for automated testing workflows while maintaining security best practices.
+                </p>
               </div>
-              <a class="blog-read-more" href="blog_1.html" style="color: var(--accent); font-weight: 500;">Read Article</a>
+              <a class="blog-read-more" href="blog_2.html">
+                Read Article
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+            </article>
+
+            <!-- Article 4: Rails Active Record Encryption -->
+            <article class="blog-card">
+              <div>
+                <div class="blog-meta">
+                  <span class="blog-category-tag tag-rails">Ruby on Rails</span>
+                  <span>📅 22 Jul 2025</span>
+                  <span>⏱️ 5 min read</span>
+                </div>
+                <h3 class="blog-title">
+                  <a href="blog_1.html">Understanding Rails Active Record Encryption</a>
+                </h3>
+                <p class="blog-excerpt">
+                  Protect sensitive user data seamlessly in Rails with built-in application-level Active Record Encryption. Configuration, key management, and query considerations.
+                </p>
+              </div>
+              <a class="blog-read-more" href="blog_1.html">
+                Read Article
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+            </article>
+
+            <!-- Article 5: MLOps -->
+            <article class="blog-card">
+              <div>
+                <div class="blog-meta">
+                  <span class="blog-category-tag tag-mlops">MLOps & Cloud</span>
+                  <span>📅 Dec 2025</span>
+                  <span>⏱️ 6 min read</span>
+                </div>
+                <h3 class="blog-title">
+                  <a href="blog_5.html">MLOps in Practice: Building an End-to-End Image Classifier</a>
+                </h3>
+                <p class="blog-excerpt">
+                  A walkthrough of building a reproducible ML pipeline with Hydra configs, DVC data versioning, Docker containerization, and CML automated PR reporting.
+                </p>
+              </div>
+              <a class="blog-read-more" href="blog_5.html">
+                Read Article
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
             </article>
           </div>
         </section>
 
-        <!-- About Section -->
-        <section id="about" class="card-section">
-          <h2 style="margin-bottom: 1.5rem; font-size: 1.875rem; font-weight: 700; color: var(--text-dark);">About Me</h2>
-          <p style="margin-bottom: 2rem; font-size: 1.125rem; line-height: 1.8;">
-            Backend Developer with nearly 3 years of experience building scalable, data-intensive systems and AI-assisted backend services.<br>
-            Strong expertise in Ruby on Rails and RESTful architectures, with hands-on experience integrating LLM pipelines, designing Retrieval-Augmented Generation (RAG) workflows, and optimizing system performance for production environments.
-          </p>
-          <h3 style="margin-bottom: 1.5rem; font-size: 1.5rem; font-weight: 600;">Skills & Technologies</h3>
-          <div class="skills-grid">
-            <div class="skill-category">
-              <h4>Languages</h4>
-              <p>Ruby, Python, NodeJS, JavaScript, SQL</p>
+        <!-- Contact Section -->
+        <section id="contact">
+          <div class="contact-card">
+            <h2>Good systems start<br>with a conversation.</h2>
+            <p>
+              I enjoy exchanging ideas about backend architecture, cloud operations, and AI integration. If you're working through an interesting engineering problem or sharing lessons from a project, let's connect.
+            </p>
+            <div class="contact-links">
+              <a href="mailto:smithmerch2301@gmail.com" class="contact-link-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                Send Email
+              </a>
+              <a href="https://linkedin.com/in/hadayxinchao" target="_blank" rel="noopener noreferrer" class="contact-link-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                </svg>
+                LinkedIn
+              </a>
+              <a href="https://github.com/Hadayxinchao" target="_blank" rel="noopener noreferrer" class="contact-link-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                </svg>
+                GitHub
+              </a>
+              <button class="contact-link-btn btn-copy-email" type="button" data-email="smithmerch2301@gmail.com" title="Copy email">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+                Copy Email
+              </button>
             </div>
-            <div class="skill-category">
-              <h4>Frameworks</h4>
-              <p>Ruby on Rails, FastAPI, ReactJS, Hotwire, Stimulus</p>
-            </div>
-            <div class="skill-category">
-              <h4>AI / RAG</h4>
-              <p>LLM integration (OpenAI), prompt engineering, vector embeddings, retrieval pipelines</p>
-            </div>
-            <div class="skill-category">
-              <h4>Tools / Other</h4>
-              <p>PostgreSQL, Redis, Docker, Sidekiq, RSpec, AWS, Google Cloud, Git</p>
-            </div>
-          </div>
-          <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.5rem; font-weight: 600;">Experience</h3>
-          <div class="skills-grid">
-            <div class="skill-category">
-              <h4>Adamo Software (Mar 2023 -- Present)</h4>
-              <ul>
-                <li>Designed and developed scalable backend components for a high-volume PIM platform in the tours & activities industry.</li>
-                <li>Implemented a production-level conversational assistant using Retrieval-Augmented Generation (RAG) and LLMs.</li>
-                <li>Architected multi-source bulk product creation, automated TTD status management, improved dashboard analytics, and resolved critical production bugs.</li>
-              </ul>
-            </div>
-            <div class="skill-category">
-              <h4>Samsung R&D Center Vietnam (Jun 2022 -- Aug 2022)</h4>
-              <ul>
-                <li>Intern Software Engineer</li>
-              </ul>
-            </div>
-          </div>
-          <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.5rem; font-weight: 600;">Education</h3>
-          <div class="skills-grid">
-            <div class="skill-category">
-              <h4>Hanoi University of Science and Technology</h4>
-              <p>Bachelor of Engineering in Computer Science; GPA: 3.01 (Oct 2020 -- Feb 2025)</p>
-            </div>
-            <div class="skill-category">
-              <h4>Hanoi University of Science and Technology</h4>
-              <p>Generative Artificial Intelligence Engineering (Oct 2025 -- Present)</p>
-            </div>
-          </div>
-          <h3 id="contact" style="margin-bottom: 1rem; font-size: 1.5rem; font-weight: 600;">Let's Connect</h3>
-          <p style="margin-bottom: 1.5rem; font-size: 1.125rem;">Feel free to reach out for collaboration or just to chat about backend, Rails, or AI development!</p>
-          <div class="contact-links">
-            <a href="mailto:smithmerch2301@gmail.com" class="contact-link">Email</a>
-            <a href="https://linkedin.com/in/hadayxinchao" target="_blank" class="contact-link">LinkedIn</a>
-            <a href="https://github.com/Hadayxinchao" target="_blank" class="contact-link">GitHub</a>
           </div>
         </section>
       </div>
     </main>
 
-    <footer>
-      <p>© 2025 Bui Hoang Ha.</p>
+    <!-- Site Footer -->
+    <footer class="site-footer">
+      <div>
+        © 2026 Bui Hoang Ha · Made with intention.
+      </div>
+      <div>
+        Ho Chi Minh City, Vietnam · <a href="#hero">Back to top ↑</a>
+      </div>
     </footer>
   </div>
+
+  <!-- Scroll to Top Floating Button -->
+  <button class="scroll-top-btn" type="button" aria-label="Scroll to top" title="Scroll to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <!-- JavaScript -->
+  <script src="scripts/main.js"></script>
 </body>
 
 </html>

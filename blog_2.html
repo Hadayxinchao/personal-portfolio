@@ -1,48 +1,98 @@
 <!DOCTYPE html>
-<html lang="en" class="bg-white min-h-screen">
-
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Using Microsoft Graph API to Automate 2FA Retrieval</title>
+  <meta name="description" content="Notes on Microsoft Graph API authentication and development testing workflows, with code examples and security considerations." />
+  <title>Using Microsoft Graph API to Automate 2FA Retrieval | Bui Hoang Ha</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Jost:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/styles.css" />
+  <link rel="stylesheet" href="styles/editorial.css" />
+  <link rel="stylesheet" href="styles/articles.css" />
+  <link rel="canonical" href="https://hadayxinchao.pages.dev/blog_2" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Hadayxinchao — Bui Hoang Ha" />
+  <meta property="og:title" content="Using Microsoft Graph API to Automate 2FA Retrieval | Bui Hoang Ha" />
+  <meta property="og:description" content="Notes on Microsoft Graph API authentication and development testing workflows, with code examples and security considerations." />
+  <meta property="og:url" content="https://hadayxinchao.pages.dev/blog_2" />
+  <meta property="og:image" content="https://hadayxinchao.pages.dev/images/profile.jpg" />
+  <meta property="og:image:alt" content="Bui Hoang Ha" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Using Microsoft Graph API to Automate 2FA Retrieval | Bui Hoang Ha" />
+  <meta name="twitter:description" content="Notes on Microsoft Graph API authentication and development testing workflows, with code examples and security considerations." />
+  <meta name="twitter:image" content="https://hadayxinchao.pages.dev/images/profile.jpg" />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "url": "https://hadayxinchao.pages.dev/blog_2", "headline": "Using Microsoft Graph API to Automate 2FA Retrieval", "description": "Notes on Microsoft Graph API authentication and development testing workflows, with code examples and security considerations.", "author": {"@type": "Person", "name": "Bui Hoang Ha", "alternateName": "Hadayxinchao", "url": "https://hadayxinchao.pages.dev/", "sameAs": ["https://github.com/Hadayxinchao", "https://www.linkedin.com/in/hadayxinchao/"]}, "mainEntityOfPage": "https://hadayxinchao.pages.dev/blog_2", "datePublished": "2025-07-22"}</script>
 </head>
-
-<body class="text-slate-700 font-sans font-light min-h-screen">
+<body class="portfolio-page article-page">
+  <a class="skip-link" href="#article-content">Skip to article</a>
   <div class="container">
-    <header>
-      <div class="header-avatar">
-        <a href="index.html">
-          <img src="./images/profile.jpg" alt="Bui Hoang Ha Avatar">
-        </a>
-      </div>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="header-brand" href="index.html#hero" aria-label="Bui Hoang Ha Homepage">
+          <div class="avatar-wrapper">
+            <img class="avatar-img" src="./images/profile.jpg" alt="Bui Hoang Ha Avatar" />
 
-      <div>
-        <a class="logo" href="index.html">
-          Bui Hoang Ha
+          </div>
+          <div class="brand-text">
+            <span class="brand-name">Bui Hoang Ha</span>
+            <span class="brand-role">Backend & DevOps Engineer</span>
+          </div>
         </a>
 
-        <nav>
-          <a href="index.html#projects">Projects</a>
-          <a href="index.html#blog">Articles</a>
-          <a href="index.html#about">About</a>
-          <a href="index.html#contact">Contact</a>
-        </nav>
+        <div class="nav-container">
+          <nav>
+            <ul class="nav-links">
+              <li><a href="index.html#projects">Projects</a></li>
+              <li><a href="index.html#experience">Experience</a></li>
+              <li><a href="index.html#skills">Skills</a></li>
+              <li><a href="index.html#blog" aria-current="page">Articles</a></li>
+              <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+          </nav>
+
+          <div class="header-actions">
+            <!-- Theme Toggle Button -->
+            <button class="theme-toggle-btn" type="button" aria-label="Toggle dark/light theme" title="Toggle theme">
+              <svg class="theme-icon-sun" style="display:none;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+              </svg>
+              <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+              </svg>
+            </button>
+
+            <!-- Mobile Hamburger Menu Button -->
+            <button class="mobile-menu-btn" type="button" aria-label="Open mobile navigation" aria-expanded="false">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+        </div>
       </div>
     </header>
-
-    <main>
-      <div class="back-link">
-        <a href="index.html#blog">← Back to Articles</a>
-      </div>
-
-      <div class="blog-content">
-        <h1>🔐 Using Microsoft Graph API to Automate 2FA Retrieval</h1>
+    <main id="article-top" class="article-main">
+      <a class="article-back" href="index.html#blog">← All articles</a>
+      <article aria-labelledby="article-title">
+        <header class="article-heading">
+          <p class="eyebrow">Notes from the journey / API Integration</p>
+          <h1 id="article-title">🔐 Using Microsoft Graph API to Automate 2FA Retrieval</h1>
+          <div class="article-meta"><span>By Bui Hoang Ha</span><time datetime="2025-07-22">22 Jul 2025</time><span>8 min read</span></div>
+        </header>
+        <div id="article-content" class="blog-content" tabindex="-1">
 
         <p>
           Two-factor authentication (2FA) is essential for security, but manually retrieving codes can be tedious during
@@ -168,9 +218,9 @@ end</code></pre>
 
         <pre><code>def get_current_2fa_code
   graph_service = MicrosoftGraphService.new(current_user.access_token)
-  
+
   auth_methods = graph_service.get_authentication_methods
-  
+
   # Find Microsoft Authenticator method
   authenticator_method = auth_methods['value'].find do |method|
     method['@odata.type'] == '#microsoft.graph.microsoftAuthenticatorAuthenticationMethod'
@@ -191,7 +241,7 @@ end</code></pre>
         <pre><code>module DevelopmentHelper
   def auto_fill_2fa_code
     return unless Rails.env.development?
-    
+
     begin
       code = TwoFactorService.get_current_code
       render json: { code: code }
@@ -223,19 +273,31 @@ end</code></pre>
         <h2>📚 Resources</h2>
 
         <ul>
-          <li><a href="https://docs.microsoft.com/en-us/graph/" target="_blank">Microsoft Graph API Documentation</a>
+          <li><a href="https://docs.microsoft.com/en-us/graph/" target="_blank" rel="noopener noreferrer">Microsoft Graph API Documentation</a>
           </li>
-          <li><a href="https://docs.microsoft.com/en-us/graph/auth/" target="_blank">Graph API Authentication</a></li>
-          <li><a href="https://github.com/oauth-xx/oauth2" target="_blank">OAuth2 Ruby Gem</a></li>
+          <li><a href="https://docs.microsoft.com/en-us/graph/auth/" target="_blank" rel="noopener noreferrer">Graph API Authentication</a></li>
+          <li><a href="https://github.com/oauth-xx/oauth2" target="_blank" rel="noopener noreferrer">OAuth2 Ruby Gem</a></li>
         </ul>
 
-      </div>
-    </main>
 
-    <footer>
-      <p>© 2025 Bui Hoang Ha.</p>
+        </div>
+      </article>
+      <nav class="article-pagination" aria-label="More articles"><a href="blog_1.html"><span class="eyebrow">Previous article</span><strong>Secure Your Rails App with Active Record Encryption</strong><span aria-hidden="true">↗</span></a><a href="blog_3.html"><span class="eyebrow">Next article</span><strong>Building a RAG Chatbot: Smarter AI Conversations</strong><span aria-hidden="true">↗</span></a></nav>
+    </main>
+    <footer class="site-footer">
+      <div>
+        © 2026 Bui Hoang Ha · Made with intention.
+      </div>
+      <div>
+        Ho Chi Minh City, Vietnam · <a href="#article-top">Back to top ↑</a>
+      </div>
     </footer>
   </div>
+  <button class="scroll-top-btn" type="button" aria-label="Scroll to top" title="Scroll to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+  <script src="scripts/main.js"></script>
 </body>
-
 </html>

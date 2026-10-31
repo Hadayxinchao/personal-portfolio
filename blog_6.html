@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="My February–October 2026 work at The Umdenken: Rails and Django backends, access control, events, analytics, AWS operations, and recovery." />
+  <title>Building and Operating Backends at The Umdenken | Bui Hoang Ha</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/styles.css" />
+  <link rel="stylesheet" href="styles/editorial.css" />
+  <link rel="stylesheet" href="styles/articles.css" />
+  <link rel="canonical" href="https://hadayxinchao.pages.dev/blog_6" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Hadayxinchao — Bui Hoang Ha" />
+  <meta property="og:title" content="Building and Operating Backends at The Umdenken | Bui Hoang Ha" />
+  <meta property="og:description" content="My February–October 2026 work at The Umdenken: Rails and Django backends, access control, events, analytics, AWS operations, and recovery." />
+  <meta property="og:url" content="https://hadayxinchao.pages.dev/blog_6" />
+  <meta property="og:image" content="https://hadayxinchao.pages.dev/images/profile.jpg" />
+  <meta property="og:image:alt" content="Bui Hoang Ha" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Building and Operating Backends at The Umdenken | Bui Hoang Ha" />
+  <meta name="twitter:description" content="My February–October 2026 work at The Umdenken: Rails and Django backends, access control, events, analytics, AWS operations, and recovery." />
+  <meta name="twitter:image" content="https://hadayxinchao.pages.dev/images/profile.jpg" />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "url": "https://hadayxinchao.pages.dev/blog_6", "headline": "Building and Operating Backends at The Umdenken", "description": "My February–October 2026 work at The Umdenken: Rails and Django backends, access control, events, analytics, AWS operations, and recovery.", "author": {"@type": "Person", "name": "Bui Hoang Ha", "alternateName": "Hadayxinchao", "url": "https://hadayxinchao.pages.dev/", "sameAs": ["https://github.com/Hadayxinchao", "https://www.linkedin.com/in/hadayxinchao/"]}, "mainEntityOfPage": "https://hadayxinchao.pages.dev/blog_6", "datePublished": "2026-10-31"}</script>
+</head>
+<body class="portfolio-page article-page">
+  <a class="skip-link" href="#article-content">Skip to article</a>
+  <div class="container">
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="header-brand" href="index.html#hero" aria-label="Bui Hoang Ha Homepage">
+          <div class="avatar-wrapper">
+            <img class="avatar-img" src="./images/profile.jpg" alt="Bui Hoang Ha Avatar" />
+
+          </div>
+          <div class="brand-text">
+            <span class="brand-name">Bui Hoang Ha</span>
+            <span class="brand-role">Backend & DevOps Engineer</span>
+          </div>
+        </a>
+
+        <div class="nav-container">
+          <nav>
+            <ul class="nav-links">
+              <li><a href="index.html#projects">Projects</a></li>
+              <li><a href="index.html#experience">Experience</a></li>
+              <li><a href="index.html#skills">Skills</a></li>
+              <li><a href="index.html#blog" aria-current="page">Articles</a></li>
+              <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+          </nav>
+
+          <div class="header-actions">
+            <!-- Theme Toggle Button -->
+            <button class="theme-toggle-btn" type="button" aria-label="Toggle dark/light theme" title="Toggle theme">
+              <svg class="theme-icon-sun" style="display:none;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+              </svg>
+              <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+              </svg>
+            </button>
+
+            <!-- Mobile Hamburger Menu Button -->
+            <button class="mobile-menu-btn" type="button" aria-label="Open mobile navigation" aria-expanded="false">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main id="article-top" class="article-main">
+      <a class="article-back" href="index.html#blog">← All articles</a>
+      <article aria-labelledby="article-title">
+        <header class="article-heading">
+          <p class="eyebrow">Notes from the journey / Backend &amp; DevOps</p>
+          <h1 id="article-title">Building and Operating Backends at The Umdenken</h1>
+          <div class="article-meta"><span>By Bui Hoang Ha</span><time datetime="2026-10-31">31 Oct 2026</time><span>6 min read</span></div>
+        </header>
+        <div id="article-content" class="blog-content" tabindex="-1">
+          <p>From February to October 2026, I worked as a Backend &amp; DevOps Engineer at The Umdenken. My work spanned two products: ULearn, a Ruby on Rails learning management platform, and the company's Django website backend. Across both, I contributed to product features, access control, data processing, deployments, and recovery workflows.</p>
+          <p>Looking back at that work, the most useful story is how these responsibilities connected. An enrollment feature affects permissions. Video delivery affects the learning experience. An event registration needs consistent data and reliable notifications. Each feature brings questions that extend beyond its API response.</p>
+
+          <h2>Starting with the workflows behind the product</h2>
+          <p>On ULearn, I worked on the backend workflows that connect learners, organizations, courses, and administrators. These included enrollment, seat allocation, free trials, learning paths, rewards, and referrals. The challenge was keeping the rules consistent across the different ways people used the platform.</p>
+          <p>A seat could belong to a paid allocation or a free trial. A learner's progress needed to stay consistent across videos, readings, and quizzes. Organization roles affected which actions a person could take. These details shaped the models, validations, authorization checks, and background jobs behind the endpoints.</p>
+          <p>I also developed marketing workflows: UTM attribution, lead submissions, funnel events, and later proposal engagement features. Connecting a preview or a form submission to a purchase meant treating those interactions as a sequence of business events, with clear rules for when a state should change.</p>
+
+          <h2>Making access control part of the design</h2>
+          <p>As these workflows expanded, I contributed a migration to permission-based role-based access control. Expressing access through permissions gave the backend a more explicit way to represent what different organizational roles could do.</p>
+          <p>My authentication work included short-lived access tokens, refresh-token rotation, session-family revocation, and login protections. These changes involved more than issuing a token: they also required handling expiration, logout, and attempts to reuse an old refresh token.</p>
+          <p>The same access-control questions appeared in media delivery. I extended HLS video workflows using AWS S3 and CloudFront, with signed cookies and URLs for controlled access to course, landing-page, and proposal content. For HLS, access has to cover the relevant playlist and segments, so getting the signing policy and media paths right matters.</p>
+
+          <h2>A concrete performance improvement</h2>
+          <p>One useful example came from the reward engine. Eligibility checks queried mission logs for individual mission candidates. As the number of candidates increased, the same request could trigger repeated database lookups.</p>
+          <p>I changed that path to load the relevant logs together, group them by mission, and evaluate eligibility using the loaded data. I also added supporting indexes. In the login flow, I replaced per-session updates with a bulk update when closing active sessions.</p>
+          <blockquote>The concrete improvement was a change in how the application used the database: batch related work, avoid repeated lookups, and keep the business rules visible.</blockquote>
+          <p>Those changes are identifiable in the implementation. I do not have a before-and-after latency benchmark to attach to them, so I describe the query improvement rather than claiming a percentage speedup.</p>
+
+          <h2>Building the Django website and event backend</h2>
+          <p>The Django work covered APIs for articles, classes, media, and contacts, followed by a larger event-management feature. Events brought together registration limits, waitlists, payment-status tracking, exports, and follow-up content such as recordings and recaps.</p>
+          <p>Registration was a particularly useful consistency problem. Two requests could arrive when only one place remained. The implementation used a transaction and a lock on the event record before checking capacity and creating the registration. It also handled duplicate registrations and transitions such as promoting someone from the waitlist.</p>
+          <p>Email delivery ran through a database-backed outbox. The registration flow recorded the notification work, while a worker claimed and sent messages outside the HTTP request. Leases and retry backoff supported recovery when a worker or provider failed. This design makes failures manageable, although retries alone do not guarantee exactly-once email delivery.</p>
+          <p>This part of the project is a good example of how a small-looking feature can involve several engineering concerns at once: concurrency, state transitions, asynchronous work, and operational visibility.</p>
+
+          <h2>From activity data to retrieval foundations</h2>
+          <p>On ULearn, I worked on asynchronous analytics ingestion using Redis Streams, Sidekiq, and Elasticsearch. The work included event indexing, user lifecycle handling, and privacy-erasure workflows. Keeping an index useful involves maintaining it as the underlying data changes, not just sending events into it.</p>
+          <p>I also contributed foundations for AI-enabled learning features: transcript processing, chunking, background embedding generation, and permission-scoped vector retrieval with PostgreSQL/pgvector and HNSW indexes.</p>
+          <p>Authorization remained central here. A relevant passage is only a valid retrieval result if the learner is allowed to access its source. Applying access rules to retrieval connects the AI pipeline back to the same product permissions used elsewhere in the platform.</p>
+          <p>This work established retrieval foundations. It was not a completed production Q&amp;A assistant: user-facing RAG capabilities still required further integration and operational validation. Keeping that boundary clear is part of describing the engineering work accurately.</p>
+
+          <h2>Deployment, recovery, and the handover</h2>
+          <p>Alongside feature development, I maintained Docker and GitHub Actions deployment workflows for the Django backend on ECS/Fargate. Toward the end of my time at The Umdenken, my work also included PostgreSQL and Redis backup controls, recovery documentation, backup freshness monitoring, and moving application credentials toward IAM roles.</p>
+          <p>I introduced Terraform management for selected AWS security and monitoring resources. This was an initial adoption boundary, not a complete infrastructure rebuild. Making that scope explicit matters: versioning some resources does not mean the entire environment can be recreated from the same configuration.</p>
+          <p>Handover documentation brought these threads together. Deployment procedures, recovery steps, access requirements, and known limitations help the next person understand both how a system works and what still needs attention.</p>
+
+          <h2>What I take from this chapter</h2>
+          <p>My time at The Umdenken ended in October 2026. The work gave me practical experience across Rails and Django product development, cloud operations, video delivery, analytics, and AI retrieval foundations.</p>
+          <p>The recurring engineering questions were concrete: Who can access this? What happens if two requests arrive together? What happens when a worker fails? How does the data stay consistent? How will someone deploy, recover, or maintain it later?</p>
+          <p>Those questions connect the different parts of this experience. They are the habits I want to carry into the systems I build next.</p>
+        </div>
+      </article>
+      <nav class="article-pagination" aria-label="More articles"><a href="blog_5.html"><span class="eyebrow">Previous article</span><strong>MLOps in Practice: Building an End-to-End Image Classifier</strong><span aria-hidden="true">↗</span></a></nav>
+    </main>
+    <footer class="site-footer">
+      <div>
+        © 2026 Bui Hoang Ha · Made with intention.
+      </div>
+      <div>
+        Ho Chi Minh City, Vietnam · <a href="#article-top">Back to top ↑</a>
+      </div>
+    </footer>
+  </div>
+  <button class="scroll-top-btn" type="button" aria-label="Scroll to top" title="Scroll to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+  <script src="scripts/main.js"></script>
+</body>
+</html>
