@@ -1,0 +1,13 @@
+# Permanent redirects for previously published article URLs.
+/blog_1 /blog/rails-active-record-encryption 301
+/blog_1.html /blog/rails-active-record-encryption 301
+/blog_2 /blog/microsoft-graph-api-testing 301
+/blog_2.html /blog/microsoft-graph-api-testing 301
+/blog_3 /blog/building-a-rag-chatbot 301
+/blog_3.html /blog/building-a-rag-chatbot 301
+/blog_4 /blog/my-first-half-marathon 301
+/blog_4.html /blog/my-first-half-marathon 301
+/blog_5 /blog/mlops-image-classifier 301
+/blog_5.html /blog/mlops-image-classifier 301
+/blog_6 /blog/building-backends-at-the-umdenken 301
+/blog_6.html /blog/building-backends-at-the-umdenken 301
