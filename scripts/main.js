@@ -90,7 +90,7 @@
         const email = btn.getAttribute('data-email') || 'smithmerch2301@gmail.com';
         try {
           await navigator.clipboard.writeText(email);
-          showToast('Email copied to clipboard! 📋');
+          showToast('Email copied to clipboard!');
           const originalText = btn.innerHTML;
           btn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Copied!`;
           btn.classList.add('copied');

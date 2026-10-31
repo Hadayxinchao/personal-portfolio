@@ -80,7 +80,7 @@
 .portfolio-page .timeline-list::before,.portfolio-page .timeline-dot { display: none; }
 .portfolio-page .timeline-item { border-top: 1px solid var(--border); padding: 24px 0; margin: 0; }
 .portfolio-page .timeline-header { flex-direction: column; gap: 8px; align-items: flex-start; }
-.portfolio-page .timeline-date { background: none; padding: 0; color: var(--accent); }
+.portfolio-page .timeline-date { display: inline-block; background: none; border: 0; border-radius: 0; padding: 0; color: var(--text-light); font: 400 11px/1.6 var(--font-mono); letter-spacing: .025em; }
 .portfolio-page .timeline-role { font-size: 16px; }
 .portfolio-page .timeline-desc,.portfolio-page .timeline-bullets { font-size: 13px; }
 .portfolio-page .skills-grid { grid-template-columns: repeat(4,1fr); gap: 0; border-block: 1px solid var(--border); }
