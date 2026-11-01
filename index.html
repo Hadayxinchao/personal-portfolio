@@ -695,13 +695,13 @@
               I enjoy exchanging ideas about backend architecture, cloud operations, and AI integration. If you're working through an interesting engineering problem or sharing lessons from a project, let's connect.
             </p>
             <div class="contact-links">
-              <a href="mailto:smithmerch2301@gmail.com" class="contact-link-btn">
+              <button type="button" class="contact-link-btn" data-open-email-dialog aria-haspopup="dialog" aria-controls="email-dialog">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                   <polyline points="22,6 12,13 2,6"></polyline>
                 </svg>
                 Send Email
-              </a>
+              </button>
               <a href="https://linkedin.com/in/hadayxinchao" target="_blank" rel="noopener noreferrer" class="contact-link-btn">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
@@ -745,8 +745,21 @@
     </svg>
   </button>
 
+  <dialog id="email-dialog" class="email-dialog" aria-labelledby="email-dialog-title" aria-describedby="email-dialog-description">
+    <form method="dialog"><button class="email-dialog-close" aria-label="Close email options">×</button></form>
+    <p class="eyebrow">LET’S CONNECT</p>
+    <h2 id="email-dialog-title">Choose your email app</h2>
+    <p id="email-dialog-description">Open a new message to <strong>smithmerch2301@gmail.com</strong>. You can review it before sending.</p>
+    <div class="email-app-links">
+      <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=smithmerch2301%40gmail.com" target="_blank" rel="noopener noreferrer">Gmail <span aria-hidden="true">↗</span></a>
+      <a href="https://outlook.live.com/mail/0/deeplink/compose?to=smithmerch2301%40gmail.com" target="_blank" rel="noopener noreferrer">Outlook <span aria-hidden="true">↗</span></a>
+      <a href="mailto:smithmerch2301@gmail.com">Default email app <span aria-hidden="true">↗</span></a>
+    </div>
+    <p class="email-dialog-hint">No email app set up? Close this window and use Copy Email.</p>
+  </dialog>
+
   <!-- JavaScript -->
-  <script src="/scripts/main.js"></script>
+  <script src="/scripts/main.js?v=email-options-1"></script>
 </body>
 
 </html>

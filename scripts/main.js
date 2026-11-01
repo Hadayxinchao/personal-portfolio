@@ -82,6 +82,18 @@
       });
     }
 
+    // Let visitors choose webmail when no mailto handler is configured.
+    const emailDialog = document.getElementById('email-dialog');
+    document.querySelectorAll('[data-open-email-dialog]').forEach((button) => {
+      button.addEventListener('click', () => {
+        if (emailDialog && typeof emailDialog.showModal === 'function') {
+          emailDialog.showModal();
+        } else {
+          window.location.href = 'mailto:smithmerch2301@gmail.com';
+        }
+      });
+    });
+
     // --- Copy Email to Clipboard with Toast ---
     const copyEmailBtns = document.querySelectorAll('.btn-copy-email');
     copyEmailBtns.forEach((btn) => {
