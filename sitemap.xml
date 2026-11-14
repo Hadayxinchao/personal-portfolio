@@ -1,24 +1,24 @@
 <?xml version='1.0' encoding='utf-8'?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://hadayxinchao.pages.dev/</loc>
+    <loc>https://portfolio.hadayxinchao.com/</loc>
   </url>
   <url>
-    <loc>https://hadayxinchao.pages.dev/blog/rails-active-record-encryption</loc>
+    <loc>https://portfolio.hadayxinchao.com/blog/rails-active-record-encryption</loc>
   </url>
   <url>
-    <loc>https://hadayxinchao.pages.dev/blog/microsoft-graph-api-testing</loc>
+    <loc>https://portfolio.hadayxinchao.com/blog/microsoft-graph-api-testing</loc>
   </url>
   <url>
-    <loc>https://hadayxinchao.pages.dev/blog/building-a-rag-chatbot</loc>
+    <loc>https://portfolio.hadayxinchao.com/blog/building-a-rag-chatbot</loc>
   </url>
   <url>
-    <loc>https://hadayxinchao.pages.dev/blog/my-first-half-marathon</loc>
+    <loc>https://portfolio.hadayxinchao.com/blog/my-first-half-marathon</loc>
   </url>
   <url>
-    <loc>https://hadayxinchao.pages.dev/blog/mlops-image-classifier</loc>
+    <loc>https://portfolio.hadayxinchao.com/blog/mlops-image-classifier</loc>
   </url>
   <url>
-    <loc>https://hadayxinchao.pages.dev/blog/building-backends-at-the-umdenken</loc>
+    <loc>https://portfolio.hadayxinchao.com/blog/building-backends-at-the-umdenken</loc>
   </url>
 </urlset>

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://hadayxinchao.pages.dev/sitemap.xml
+Sitemap: https://portfolio.hadayxinchao.com/sitemap.xml
